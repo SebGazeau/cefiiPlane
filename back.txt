@@ -7,4 +7,6 @@ Hello it is alex
 
 Salut c'est romain Boivin
 
-je comprends pas j'ai pas tout bien fait comme il faut..
+je comprends pas j'ai tout bien fait comme il faut..
+
+Tu peux me déboguer
