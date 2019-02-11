@@ -1,5 +1,9 @@
 ﻿
+<<<<<<< HEAD
 Clément(2.0) 
+=======
+Clément
+>>>>>>> ba0811c8f0b771935b12324b17fb8147c8a20cdf
 
 Hello de Julien
 
@@ -13,3 +17,9 @@ fake!
 
 PAYS DE GALLE INDEPENDANT!!!!
 Mamady
+
+FFFFUUUUUUUUUCKKKKKKK !
+
+J'ai réussi jte dis !
+
+Guillaume
