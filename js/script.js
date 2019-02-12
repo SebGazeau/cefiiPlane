@@ -4,5 +4,5 @@ $(document).ready(function ($) {
 
 function popScore() {
     // ouverture-fermeture popup
-    $(".popup").slideToggle();
+    $("#contenuPopupFin").slideToggle();
 }
