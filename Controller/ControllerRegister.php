@@ -15,13 +15,13 @@ class ControllerRegister extends ControllerBase
         'email' => $_POST['email'],
         'password' => $_POST['password']);
         $exist = $this -> model -> verifEmail($info['email']);
+        var_dump($exist);
         if ($exist == 'oui'){
             $this -> view -> addUserError();
         }else{
         $this -> model -> addUser($info);
         $id = $this -> model -> getIdUser($info['email']);
 
-        $_SESSION('user')=$id; 
 
         $_SESSION['user']=$id;
 
