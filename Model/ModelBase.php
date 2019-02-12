@@ -7,7 +7,7 @@ abstract class ModelBase
     const SERVER = "localhost";
     const USER = "root";
     const PASSWORD = "";
-    const BASE = "";
+    const BASE = "cefiiPlane";
 
     public function __construct() {
         try {
