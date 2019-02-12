@@ -18,11 +18,10 @@ public function verifEmail($email){
     }  
 public function addUser($info){
 
-    $requete = $this->database->prepare("INSERT INTO user (id, name, email,password) VALUES (NULL,:name,:email,:password)");
+    $requete = $this->database->prepare("INSERT INTO user (id, name, email,password,access) VALUES (NULL,:name,:email,:password,0)");
 
 
-$requete->bindParam(':name',$info['name']);;
-
+$requete->bindParam(':name',$info['name']);
 $requete->bindParam(':email',$info['email']);
 $requete->bindParam(':password',$info['password']);
 $result = $requete -> execute();
