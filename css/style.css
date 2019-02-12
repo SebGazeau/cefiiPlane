@@ -14,7 +14,6 @@ body {
     display: none;
 }
 
-<<<<<<< HEAD
 
 #popupForm{
     border: 2px solid black;
@@ -29,9 +28,8 @@ body {
 }
 
 
-html{
-=======
-* .arcade {
+html{}
+.arcade {
     font-family: silkscreennormal;
 }
 
@@ -40,7 +38,6 @@ html{}
 .popupFlex {}
 
 html {
->>>>>>> c34e57b9567cf8d55fe1b13426f26023c979916f
     width: 100%;
 }
 
@@ -48,16 +45,8 @@ section {
     width: 100%;
     height: auto;
 }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c34e57b9567cf8d55fe1b13426f26023c979916f
-
 
 #contenuPopupFin{
 display: none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> c34e57b9567cf8d55fe1b13426f26023c979916f
