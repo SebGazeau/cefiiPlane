@@ -23,7 +23,7 @@ CREATE TABLE user(
 
 CREATE TABLE score(
         id          Int  Auto_increment  NOT NULL ,
-        flight_time Time NOT NULL ,
+        flight_time Float NOT NULL ,
         distance    Float NOT NULL ,
         id_user     Int NOT NULL
 	,CONSTRAINT score_PK PRIMARY KEY (id)
