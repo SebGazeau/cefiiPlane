@@ -9,7 +9,5 @@ class ControllerRegister extends ControllerBase
         parent::__construct("Register");
     }
     
-    
-    
-    vfjdbvjfdnjvndfkjvbjkdbvjbdkjbvkbdk
+
 }
