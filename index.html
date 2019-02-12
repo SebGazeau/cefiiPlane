@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Cefii Plane (Je suis le chef et pis c'est tout)</title>
@@ -19,10 +20,10 @@
 
     <div>
         <section>
-           <img src="img/fond.jpg" alt="">
+            <img src="img/fond.jpg" alt="">
             <!--zone jeu-->
         </section>
-<!------ PopUp formulaire inscription/connnexion ------>
+        <!------ PopUp formulaire inscription/connnexion ------>
         <div id="popupForm">
             <div id="contenuPopForm">
                 <legend>
@@ -48,26 +49,30 @@
                             <input type="text" class="form-control" id="email" name="email">
                         </div>
                     </div>
-                    <input type="button"  id="submit" value="Valider"> 
+                    <input type="button" id="submit" value="Valider">
                 </form>
- 
+
             </div>
         </div>
-<!------ PopUp Fin de partie ------>
+        <!------ PopUp Fin de partie ------>
         <div>
             <div id="popupFin" class="arcade">
                 <div id="contenuPopupFin">
-                    <h1>Votre score : </h1>
-                    <div id="scoreJoueur"></div>
-                    <h2>Meilleurs scores : </h2>
-                    <div id="listeScore">
-                        <ul>
-                            <li>1er : 5687</li>
-                            <li>2ème : 4820</li>
-                            <li>3ème : 4581</li>
-                            <li>4ème : 3978</li>
-                            <li>5ème : 1578</li>
-                        </ul>
+                    <div class="popupFlex">
+                        <h1>Score : </h1>
+                        <div id="scoreJoueur">5789</div>
+                    </div>
+                    <div class="popupFlex">
+                        <h1>Best scores : </h1>
+                        <div id="listeScore">
+                            <ul>
+                                <li>1er : 5687</li>
+                                <li>2ème : 4820</li>
+                                <li>3ème : 4581</li>
+                                <li>4ème : 3978</li>
+                                <li>5ème : 1578</li>
+                            </ul>
+                        </div>
                     </div>
                     <div id="explication">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nostrum ratione, aliquam natus neque corrupti, illum odio voluptatum.</p>
@@ -87,4 +92,5 @@
         </footer>
     </div>
 </body>
+
 </html>
