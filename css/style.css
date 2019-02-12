@@ -1,23 +1,38 @@
-.arcade {
+body {
+    position: relative;
+}
+
+#popupFin {
+    position: absolute;
+    left: 33%;
+    top: 7%;
+    width: 30%;
+    margin: auto;
+}
+
+#contenuPopupFin {
+    display: none;
+}
+
+* .arcade {
     font-family: silkscreennormal;
 }
 
-.popupFlex {
-    width: 30%;
-    margin: auto;
+html{}
 
-}
+.popupFlex {}
 
-html{
+html {
     width: 100%;
 }
+
 section {
     width: 100%;
     height: auto;
 }
+<<<<<<< HEAD
 
 
 #contenuPopupFin{
 display: none;
 }
-
