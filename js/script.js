@@ -1,8 +1,8 @@
-$(document).ready(function ($) {
-    $("#testPopup").click(popScore);
+jQueryQuery(document).ready(function () {
+    jQuery("#testPopup").click(popScore);
 });
 
 function popScore() {
     // ouverture-fermeture popup
-    $(".popup").slideToggle();
+    jQuery("#contenuPopupFin").slideToggle();
 }

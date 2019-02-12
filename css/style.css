@@ -1,5 +1,4 @@
 .arcade {
-    /*    display: none;*/
     font-family: silkscreennormal;
 }
 
@@ -8,6 +7,7 @@
     margin: auto;
 
 }
+<<<<<<< HEAD
 html{
     width: 100%;
 }
@@ -15,3 +15,9 @@ section {
     width: 100%;
     height: auto;
 }
+=======
+
+#contenuPopupFin{
+display: none;
+}
+>>>>>>> bd8cf392cb9b814dc5e5c92a28e6888f0ed8e2ea
