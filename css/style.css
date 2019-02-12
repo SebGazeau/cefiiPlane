@@ -1,5 +1,4 @@
 .arcade {
-    /*    display: none;*/
     font-family: silkscreennormal;
 }
 
@@ -7,4 +6,8 @@
     width: 30%;
     margin: auto;
 
+}
+
+#contenuPopupFin{
+display: none;
 }
