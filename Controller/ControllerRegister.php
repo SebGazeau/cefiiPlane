@@ -23,7 +23,7 @@ class ControllerRegister extends ControllerBase
         $id = $this -> model -> getIdUser($info['email']);
 
 
-        $_SESSION['user']=$id;
+        $_SESSION['id_user']=$id;
 
         }
     }
