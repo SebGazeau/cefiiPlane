@@ -20,7 +20,7 @@ class ControllerRegister extends ControllerBase
         }else{
         $this -> model -> addUser($info);
         $id = $this -> model -> getIdUser($info['email']);
-        $_SESSION('user')=$id;
+        $_SESSION['user']=$id;
         }
     }
 
