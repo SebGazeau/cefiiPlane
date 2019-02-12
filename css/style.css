@@ -1,1 +1,10 @@
+.popup {
+    display: none;
+    font-family: silkscreennormal;
+}
 
+.popupFlex {
+    width: 30%;
+    margin: auto;
+
+}
