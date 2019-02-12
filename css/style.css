@@ -3,20 +3,55 @@ body {
 }
 
 #popupFin {
+    display: flex;
     position: absolute;
     left: 33%;
     top: 7%;
-    width: 30%;
+    width: 35%;
     margin: auto;
+    z-index: 999;
+    text-align: center;
+}
+
+#contenuPopupFin h1 {
+    font-weight: 700;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+#scoreJoueur {
+    font-size: 2em;
+    background-color: black;
+    width: 33%;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#listeScore {
+    font-size: 2em;
+    background-color: black;
+    width: 66%;
+    text-align: center;
+    margin-bottom: 2em;
 }
 
 #contenuPopupFin {
+    border-radius: 2%;
     display: none;
+    padding: 1%;
+    background-color: #180315;
+    height: 40em;
+    color: whitesmoke;
 }
 
 
+<<<<<<< HEAD
 #popupForm{
     border: 2px solid white;
+=======
+#popupForm {
+    border: 2px solid black;
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
     border-radius: 20px;
    
     height: 200px;
@@ -31,14 +66,26 @@ body {
 }
 
 
+<<<<<<< HEAD
+=======
+html {}
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
 
 .arcade {
     font-family: silkscreennormal;
 }
 
+<<<<<<< HEAD
 
+=======
+html {}
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
 
-.popupFlex {}
+.popupFlex {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
 
 html {
     width: 100%;
@@ -49,7 +96,6 @@ section {
     height: auto;
 }
 
-#contenuPopupFin{
-display: none;
+#contenuPopupFin {
+    display: none;
 }
-
