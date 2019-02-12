@@ -1,5 +1,4 @@
-.popup {
-/*    display: none;*/
+.arcade {
     font-family: silkscreennormal;
 }
 
@@ -9,11 +8,30 @@
 
 }
 
+
 #popupForm{
     border: 2px solid black;
     border-radius: 20px;
     background-color: olive;
     height: 200px;
     width: 30%;
+    margin-left: 500px;
+    margin-top: -400px;
+    z-index: 10;
+    position: relative;
+}
+
+
+html{
+    width: 100%;
+}
+section {
+    width: 100%;
+    height: auto;
+}
+
+
+#contenuPopupFin{
+display: none;
 }
 
