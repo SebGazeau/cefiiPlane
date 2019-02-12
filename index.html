@@ -6,13 +6,44 @@
     <link rel="stylesheet" href="style.css">
     <script src="test.js"></script>
     <meta name="viewport" content="width=device-width, initiale-scale=1" />
+    
+    
+   <link rel="stylesheet" href="css/font/web_fonts/silkscreen_normal_macroman/stylesheet.css" type="text/css" charset="utf-8">
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <div>
         <section>
             <!--zone jeu-->
         </section>
-        <div><!--popup--></div>
+        <div>
+           <div class="popupFlex">
+       <div class="popup">
+           <h1>Votre score : </h1>
+           <div id="score"></div>
+           <h2>Meilleurs scores : </h2>
+           <div id="liste">
+               <ul>
+                   <li>1er : 5687</li>
+                   <li>2ème : 4820</li>
+                   <li>3ème : 4581</li>
+                   <li>4ème : 3978</li>
+                   <li>5ème : 1578</li>
+               </ul>
+           </div>
+           <div id="tesCon">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nostrum ratione, aliquam natus neque corrupti, illum odio voluptatum.</p>
+               <button>Statistiques</button>
+               <button>Rejouer</button>
+           </div>
+           
+           <!--popup-->
+           
+       </div>
+       <button id="testPopup">Popup</button>
+   </div>
+</div>
         <aside>
             <!--zone controle-->
         </aside>
