@@ -5,17 +5,23 @@ class ModelFlight extends ModelBase
 
    
 public function newFlight2($user)(){
-        $requete = "SELECT flight.id_user FROM flight JOIN user ON flight.id_user=user.id ";
+        $requete = $connexion->prepare ("INSERT INTO flight VALUES (NULL, :user)");
+
         $result = $this->connexion->query($requete);
         $list=$result->fetchall(PDO::FETCH_NUM);    
-        return $list;
+       
+
+        $requete->bindParam(':user',$user);
+                    
+        $resultat = $requete->execute();
+        return $resultat;
     }    
 
-        
-public function addSession2(){
-        
-}
+public function recordFlight(){
+         $requete = $connexion->prepare ("SELECT MAX(id) FROM flight WHERE id_user=:id");
 
+         $requete->bindParam(':id',$_SESSION['id_user']);
+}
 
 
 

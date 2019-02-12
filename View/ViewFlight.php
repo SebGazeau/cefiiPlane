@@ -6,9 +6,11 @@ class ViewFlight extends ViewBase
         parent::__construct();
     }
 
-public function getUser3($list){
-    $this->myHTML .="Bonjour ".$element[0]."voici le score de votre vol;
-}
+    public function displayErreur(){
+        $this->pageHTML .="<p> une erreur est survenue </p>";
+        $this -> displayHTML();
+    }
+
 
 
 
