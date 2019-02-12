@@ -45,26 +45,41 @@ body {
 }
 
 
+<<<<<<< HEAD
+#popupForm{
+    border: 2px solid white;
+=======
 #popupForm {
     border: 2px solid black;
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
     border-radius: 20px;
-    background-color: olive;
+   
     height: 200px;
     width: 30%;
     margin-left: 500px;
     margin-top: -400px;
     z-index: 10;
     position: relative;
+    color: black;
+    padding: 30px 30px 30px 30px;
+    box-shadow:black  0 0 400px;
 }
 
 
+<<<<<<< HEAD
+=======
 html {}
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
 
 .arcade {
     font-family: silkscreennormal;
 }
 
+<<<<<<< HEAD
+
+=======
 html {}
+>>>>>>> ece6c944d9bb780537648e18294d6d9820ec9288
 
 .popupFlex {
     display: flex;
