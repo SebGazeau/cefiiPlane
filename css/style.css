@@ -125,3 +125,13 @@ section {
         border-radius: 20px;
     }
 }
+
+.boutonFlex {
+    display: flex;
+    margin-top: 1.5em;
+    justify-content: space-around;
+}
+
+.boutonFlex button {
+    width: 20%
+}
