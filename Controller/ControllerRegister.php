@@ -36,9 +36,11 @@ class ControllerRegister extends ControllerBase
                               strlen($info['name'])<=10 &&
                               preg_match($regex_pseudo , $info['name'])){
                               
-                              $regex_password = "^(?=.*[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{3,})^";
+                              $regex_password = "^(?=.*[a-zA-Z])(?=.[0-9])^";
                               
-                              if (preg_match($regex_password , $info['password'])  
+                              if (strlen($info['name'])>4 &&
+                                  strlen($info['name'])<=12 &&
+                                  preg_match($regex_password , $info['password'])  
                                 ){
             
             //Récuperation des détails du compte via l'adresse email du formulaire

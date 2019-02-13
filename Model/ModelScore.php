@@ -33,10 +33,10 @@ class ModelScore extends ModelBase
     public function bestScores($score_number) {
         $request = $this -> database -> prepare("SELECT user.name, score.score, score.flight_time, score.distance
                                                 FROM score
-                                                JOIN user ON score.user_id = user.id
+                                                JOIN user ON score.id_user = user.id
                                                 ORDER BY score.score DESC
                                                 LIMIT :score_number");
-        $request -> bindParam(":score_number", $score_number);
+        $request -> bindParam(":score_number", $score_number, PDO::PARAM_INT);
         $request -> execute();
         $scores = $request -> fetchALL(PDO::FETCH_NUM);
 
@@ -54,7 +54,7 @@ class ModelScore extends ModelBase
                                                 ORDER BY score DESC
                                                 LIMIT 1");
         $request -> execute();
-        $scores = $request -> fetchfetchALL(PDO::FETCH_NUM);
+        $score = $request -> fetch(PDO::FETCH_NUM);
 
         return $score;
     }
