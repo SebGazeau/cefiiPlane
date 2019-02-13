@@ -30,7 +30,7 @@ class ControllerRegister extends ControllerBase
                     
                     if(preg_match($regex_email,$info['email'])){
                         
-                        $regex_pseudo = "(^[a-zA-Z]{1,20}[0-9]{0,3}$)";
+                        $regex_pseudo = "(^[a-zA-Z]{1,20}[0-9]{0,9}$)";
                         
                           if (strlen($info['name'])>2 &&
                               strlen($info['name'])<=10 &&
@@ -61,7 +61,6 @@ class ControllerRegister extends ControllerBase
                 
                 //id= id du compte recuperer en db
                 //on l'ajoute au $_SESSION['id_user] pour que l'utilisateur n'est pas besoin de se connecter une fois son colpte creer
-
             $_SESSION['id_user']=$id;
 
             } // Fin du esle
