@@ -1,25 +1,4 @@
-<<<<<<< HEAD
-<?php
 
-abstract class ViewBase {
-	protected $pageHTML;
-
-	protected function __construct() {
-		$this->pageHTML = file_get_contents("View/html/header.html");
-		$this->pageHTML .= file_get_contents("View/html/nav.html");
-	}
-
-	public function displayPage($page) {
-		$this->pageHTML .= file_get_contents("View/html/".lcfirst($page).".html");
-		$this->displayHTML();
-	}
-
-	protected function displayHTML() {
-		$this->pageHTML .= file_get_contents("View/html/footer.html");
-		echo $this->pageHTML;
-	}
-}
-=======
 <?php
 
 abstract class ViewBase
@@ -41,4 +20,4 @@ abstract class ViewBase
         echo $this -> pageHTML;
     }
 }
->>>>>>> d9b8590f1ad063e1912526632f504b330bc55a3c
+
