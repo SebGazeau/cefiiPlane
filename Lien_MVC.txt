@@ -1,10 +1,16 @@
 MVC Scores:
 
-ajout:
+ajout: index.php?controller=score&action=newScore
+@param $_POST["id_user"] : id de l'utilisateur
+@param $_POST["time"] : temps de vol
+@param $_POST["distance"] : distance de vol
 
-mise à jour:
+meilleurs scores: index.php?controller=score&action=leaderboard
+@param $_POST["score_number"] : nombre de scores à afficher
 
-Suppression:
+meilleur score personnel : index.php?controller=score&action=bestPersonalScore
+@param $_POST["id_user"] : id de l'utilisateur
+
 
 MVC Black_Box:
 
