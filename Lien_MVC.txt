@@ -25,9 +25,11 @@ MVC Flight:
 ajout: index.php?controller=Flight&action=newFlight
 @param $_SESSION['id_user'] : identifiant de l'utilisateur
 
-mise à jour: 
+sélection: index.php?controller=Flight&action=selectFlight
+@param $_SESSION['id_user'] : identifiant de l'utilisateur
 
-Suppression:
+Suppression: index.php?controller=Flight&action=supprFlight
+@param $_GET['id'] : identifiant de l'utilisateur
 
 MVC Register:
 
