@@ -25,12 +25,13 @@ $requete->bindParam(':name',$info['name']);
 $requete->bindParam(':email',$info['email']);
 $requete->bindParam(':password',$info['password']);
 $result = $requete -> execute();
-    var_dump($result);
+
   }
 public function getIdUser($email){
+    
+    var_dump($email);
 
         $requete = $this -> database -> prepare('SELECT id FROM user WHERE email = :email');
-
         $requete->bindParam(':email',$email);
         $id = $requete -> fetchALL(PDO::FETCH_NUM);
     var_dump($id);die;
