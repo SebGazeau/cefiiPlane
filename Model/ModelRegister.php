@@ -29,13 +29,11 @@ $result = $requete -> execute();
   }
 public function getIdUser($email){
     
-    var_dump($email);
 
         $requete = $this -> database -> prepare('SELECT id FROM user WHERE email = :email');
         $requete->bindParam(':email',$email);
+    $result = $requete -> execute();
         $id = $requete -> fetchALL(PDO::FETCH_NUM);
-    var_dump($id);die;
-        $id=$id[0][0];
         return $id;
     }
 }

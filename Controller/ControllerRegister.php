@@ -58,7 +58,6 @@ class ControllerRegister extends ControllerBase
                 
                 //Le user est ajouter maintenant on recupere son id de compte via son email
             $id = $this -> model -> getIdUser($info['email']);
-                
                 //id= id du compte recuperer en db
                 //on l'ajoute au $_SESSION['id_user] pour que l'utilisateur n'est pas besoin de se connecter une fois son colpte creer
             $_SESSION['id_user']=$id;
@@ -96,5 +95,6 @@ class ControllerRegister extends ControllerBase
         }
         
     } // Fin de addUser()
-
+    
+    
 } //Fin de la classe
