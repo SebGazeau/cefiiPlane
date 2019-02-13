@@ -23,8 +23,8 @@ $(document).ready(function ($) {
                     data: param,
                     success: function (data, statut) {
                         console.log(data);
-                        if (data = "bonjour") {
-                            $("#submit").click(popForm);
+                        if (data == "connexion" || data =="inscription") {
+                            popForm();
                         } else {
                             alert("erreur");
                         }
@@ -42,6 +42,21 @@ $(document).ready(function ($) {
         } else {
             alert('veuillez remplir tous les champs');
         }
+    });
+    $('#testPopup').click(function(){
+        var score = 45;
+        var idJoueur = "joueur test";
+        var info = 'idJoueur='+idJoueur+'&score='+score;
+        $.ajax({
+            url:'js/resultat.php',
+            type:'POST',
+            data: info,
+            success : function (dataInfo){
+                $('#listeScore').append(dataInfo);
+                console.log(dataInfo);
+            }
+        })
+        
     });
 
 });
