@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart" style="position: relative; height:40vh; width:80vw" -->></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var scatterChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Scatter Dataset',
+                    responsive: false,
+                    showLine: true,
+                    lineTension: 0,
+                    borderColor: "#5008D1",
+                    data: [{
+                        x: -10,
+                        y: 0
+                    }, {
+                        x: 0,
+                        y: 10
+                    }, {
+                        x: 10,
+                        y: 5
+                    }, {
+                        x: 20,
+                        y: 30
+                    }, {
+                        x: 21,
+                        y: 40
+                    }, {
+                        x: 25,
+                        y: 70
+                    }, {
+                        x: 28,
+                        y: 80
+                    }, {
+                        x: 50,
+                        y: 81
+                    }, {
+                        x: 75,
+                        y: 125
+                    }]
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
