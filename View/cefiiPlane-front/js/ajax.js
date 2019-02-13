@@ -24,7 +24,7 @@ $(document).ready(function ($) {
                     success: function (data, statut) {
                         console.log(data);
                         if (data = "bonjour") {
-                            $("#submit").click(popForm);
+                           popForm();
                         } else {
                             alert("erreur");
                         }
