@@ -1,31 +1,35 @@
-<<<<<<< HEAD
+
 #anim{
-    width: 1800px;
+    width: 100%;
     height: 400px;
-=======
+}
 #imgfond {
-    width: 1920px;
+    width: 100%;
     height: 500px;
->>>>>>> 1a74a994d0bb4d30cc00f4eb2ca4e72927a28a8e
     background: url(../img/fond.jpg);
     position: relative;
     margin: 0 auto;
-    -webkit-animation: fond 2s;
-    animation: fond 2s infinite linear;
+    -webkit-animation: fond 10s;
+    animation: fond 10s infinite linear;
     overflow: hidden;
 }
 
-<<<<<<< HEAD
-#avion{
+
+#avionComplete{
+    z-index: 10;
     position: absolute;
-    margin-top: 280px;
-    left: 0;
+    top: 400px;
+    left: 250px;
     -webkit-transition: 0.1s;
-    transition:0.1s;
+    transition:0.01s;
 }
-#avion{
+
+.nezHaut{
 	-webkit-transform: rotate(-20deg);
 	transform: rotate(-20deg);
+}
+.nezBas{
+    transform: rotate(20deg);
 }
 #oiseau{
     position: absolute;
@@ -33,21 +37,21 @@
     left: 400px;
     z-index:2;
 }
-@-webkit-keyframes fond{
-    to{
-        background-position: -400px 0 ;
-    }
+
+/* Helice */
+
+#conteneurElis{
+   z-index:9999;
+   position:absolute;
+   top:0;
+   left:284px;
+
 }
-@keyframes fond{
-=======
-@c-webkit-keyframes fond{
-    to{
-        background-position: -8600px 0 ;
-    }
+.rotationEli{
+   animation: rotation 0.1s linear infinite;
 }
-@vkeyframes fond{
->>>>>>> 1a74a994d0bb4d30cc00f4eb2ca4e72927a28a8e
-    to{
-        background-position: -400px 0;
-    }
+@keyframes rotation{
+   from { transform: rotateX(0deg)}
+   to{transform:  rotateX(360deg)}
+
 }
