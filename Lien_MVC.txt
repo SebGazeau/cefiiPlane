@@ -1,4 +1,4 @@
-MVC Score:
+MVC Scores:
 
 ajout: index.php?controller=score&action=newScore
 @param $_POST["id_user"] : id de l'utilisateur
@@ -11,6 +11,7 @@ meilleurs scores: index.php?controller=score&action=leaderboard
 meilleur score personnel : index.php?controller=score&action=bestPersonalScore
 @param $_POST["id_user"] : id de l'utilisateur
 
+
 MVC Black_Box:
 
 ajout:
@@ -21,15 +22,16 @@ Suppression:
 
 MVC Flight:
 
-ajout:
+ajout: index.php?controller=Flight&action=newFlight
+@param $_SESSION['id_user'] : identifiant de l'utilisateur
 
-mise à jour:
+mise à jour: 
 
 Suppression:
 
 MVC Register:
 
-ajout: index.php?controller=Register&action=addUser
+ajout:
 
 MVC Login:
 

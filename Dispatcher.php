@@ -5,6 +5,7 @@ include "View/ViewBase.php";
 include "Controller/ControllerBase.php";
 include "Controller/ControllerHome.php";
 include "Controller/ControllerBlackBox.php";
+include "Controller/ControllerFlight.php";
 include "Controller/ControllerLogin.php";
 include "Controller/ControllerRegister.php";
 include "Controller/ControllerScore.php";

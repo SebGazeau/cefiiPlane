@@ -3,30 +3,22 @@
 include "Model/ModelFlight.php";
 include "View/ViewFlight.php";
 
-class ControllerHome extends ControllerBase
-{
-    public function __construct() {
+class ControllerFlight extends ControllerBase {
+        public function __construct() {
         parent::__construct("Flight");
     }
 
-/* Création d'un vol*/
+/* Création d'un vol et retourne une $_SESSION*/
 public function newFlight() {
-    var_dump($_SESSION);
-    if(isset($_SESSION['id_user'])&&(is_int($_SESSION['id_user'])){
+     
+    if(isset($_SESSION['id_user'])&&(is_int($_SESSION['id_user']))){
         $user=$_SESSION['id_user'];
-        if($this->model->newFlight2($user)){
-            $this->model->recordFlight();
-        }
+                
+        $this->model->newFlight($user);
+           
     }else{
-        $this->view displayErreur();
+        $this->view->displayErreur();
+         }
     }
-}
-
-/* Envoi sur session*/
-public function addSession() {
-    $list=$this->model->addSession2($list);
-}
-
-
-
+   
 }
