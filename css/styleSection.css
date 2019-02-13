@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 #anim{
     width: 1800px;
     height: 400px;
+=======
+#imgfond {
+    width: 1920px;
+    height: 500px;
+>>>>>>> 1a74a994d0bb4d30cc00f4eb2ca4e72927a28a8e
     background: url(../img/fond.jpg);
     position: relative;
     margin: 0 auto;
@@ -9,6 +15,7 @@
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 #avion{
     position: absolute;
     margin-top: 280px;
@@ -32,6 +39,14 @@
     }
 }
 @keyframes fond{
+=======
+@c-webkit-keyframes fond{
+    to{
+        background-position: -8600px 0 ;
+    }
+}
+@vkeyframes fond{
+>>>>>>> 1a74a994d0bb4d30cc00f4eb2ca4e72927a28a8e
     to{
         background-position: -400px 0;
     }
