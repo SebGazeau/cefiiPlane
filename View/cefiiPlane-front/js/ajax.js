@@ -18,7 +18,7 @@ $(document).ready(function ($) {
             if (regExp.test(email)) {
                 var param = "name=" + name + "&email=" + email + "&password=" + password;
                 $.ajax({
-                    url: 'index.php?controller=Register&action=addUser',
+                    url: 'index.php?controller=Login&action=login',
                     type: 'POST',
                     data: param,
                     success: function (data, statut) {
