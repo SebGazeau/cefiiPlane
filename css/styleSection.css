@@ -1,0 +1,21 @@
+#imgfond {
+    width: 1920px;
+    height: 500px;
+    background: url(../img/fond.jpg);
+    position: relative;
+    margin: 0 auto;
+    -webkit-animation: fond 2s;
+    animation: fond 2s infinite linear;
+    overflow: hidden;
+}
+
+@c-webkit-keyframes fond{
+    to{
+        background-position: -8600px 0 ;
+    }
+}
+@vkeyframes fond{
+    to{
+        background-position: -400px 0;
+    }
+}
