@@ -11,6 +11,6 @@ class ControllerHome extends ControllerBase
 
 
 public function display(){
-    $this->view->displayForm();
+    $this->view->displayPage("page");
 }
 }
