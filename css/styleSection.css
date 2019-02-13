@@ -1,0 +1,38 @@
+#anim{
+    width: 1800px;
+    height: 400px;
+    background: url(../img/fond.jpg);
+    position: relative;
+    margin: 0 auto;
+    -webkit-animation: fond 2s;
+    animation: fond 2s infinite linear;
+    overflow: hidden;
+}
+
+#avion{
+    position: absolute;
+    margin-top: 280px;
+    left: 0;
+    -webkit-transition: 0.1s;
+    transition:0.1s;
+}
+#avion{
+	-webkit-transform: rotate(-20deg);
+	transform: rotate(-20deg);
+}
+#oiseau{
+    position: absolute;
+    top: 0;
+    left: 400px;
+    z-index:2;
+}
+@-webkit-keyframes fond{
+    to{
+        background-position: -400px 0 ;
+    }
+}
+@keyframes fond{
+    to{
+        background-position: -400px 0;
+    }
+}
