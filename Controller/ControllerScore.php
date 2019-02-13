@@ -46,7 +46,9 @@ class ControllerScore extends ControllerBase
     // Affichage du meilleur score du joueur
     public function bestPersonalScore() {
 
-        if (isset($_POST["id_user"]) && is_int($_POST["id_user"])) {
+        if (isset($_POST["id_user"]) && is_int($_POST["id_user"] + 0)) {
+            $id_user = $_POST["id_user"];
+
             $score = $this -> model -> bestPersonalScore($id_user);
             $this -> view -> displayPersonalScore($score);
         }
