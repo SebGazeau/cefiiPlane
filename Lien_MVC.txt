@@ -24,7 +24,7 @@ Suppression:
 
 MVC Register:
 
-ajout:
+ajout: index.php?controller=Register&action=addUser
 
 MVC Login:
 

@@ -1,0 +1,90 @@
+
+    <div>
+        <section>
+            <img src="View/cefiiPlane-front/img/fond.jpg" alt="">
+            <!--zone jeu-->
+        </section>
+
+
+        <!------ PopUp formulaire inscription/connnexion ------>
+        <div id="popupForm">
+            <div id="contenuPopForm">
+
+                <legend>
+                    <button type="button" class="arcade typeForm">connexion</button>
+                    <button type="button" class="arcade typeForm">inscription</button>
+                </legend>
+                <br>
+                <form id='connexion' action='#' method="Post" enctype="multipart/form-data">
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">Pseudo : </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Mot de passe : </label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mail" class="col-sm-2 col-form-label">Email : </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="email" name="email">
+                        </div>
+                    </div>
+
+
+                    <input type="button" id="submit" value="Valider" class="arcade">
+
+                </form>
+
+            </div>
+        </div>
+
+
+        <!------ PopUp Fin de partie ------>
+        <div>
+            <div id="popupFin" class="arcade">
+                <div id="contenuPopupFin">
+                    <div class="popupFlex">
+                        <h1>Score : </h1>
+                        <div id="scoreJoueur">5789</div>
+                    </div>
+                    <div class="popupFlex">
+                        <h1>Best scores : </h1>
+                        <div id="listeScore">
+                            <ul>
+                                <li>1er : 5687</li>
+                                <li>2ème : 4820</li>
+                                <li>3ème : 4581</li>
+                                <li>4ème : 3978</li>
+                                <li>5ème : 1578</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="explication">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nostrum ratione, aliquam natus neque corrupti, illum odio voluptatum.</p>
+                        <div class="boutonFlex">
+                            <button>Statistiques</button>
+                            <button>Rejouer</button>
+                        </div>
+                    </div>
+
+                </div>
+                <button id="testPopup">Popup</button>
+            </div>
+        </div>
+        <aside>
+            <!--zone controle-->
+        </aside>
+        <footer>
+            <!--pied de page-->
+        </footer>
+
+
+    </div>
+</body>
+
+</html>
