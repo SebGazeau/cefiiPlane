@@ -12,13 +12,13 @@ class ControllerScore extends ControllerBase
     // Insertion d'un nouveau score
     public function newScore() {
 
-        if (isset($_POST["idUser"]) && is_int($_POST["idUser"]) && isset($_POST["flightTime"]) && is_numeric($_POST["flightTime"]) && isset($_POST["distance"]) && is_numeric($_POST["distance"])) {
-            $idUser = $_POST["idUser"];
-            $flightTime = $_POST["flightTime"];
+        if (isset($_POST["id_user"]) && is_int($_POST["id_user"] + 0) && isset($_POST["time"]) && is_numeric($_POST["time"]) && isset($_POST["distance"]) && is_numeric($_POST["distance"])) {
+            $id_user = $_POST["id_user"];
+            $time = $_POST["time"];
             $distance = $_POST["distance"];
-            $score = $flightTime + $distance;
+            $score = $time + $distance;
 
-            $result = $this -> model -> insertScore($idUser, $flightTime, $distance, $score);
+            $result = $this -> model -> insertScore($id_user, $time, $distance, $score);
 
             if (!$result) {
                 $this -> view -> displayAddError();
@@ -32,21 +32,21 @@ class ControllerScore extends ControllerBase
     // Affichage du tableau des scores
     public function leaderboard() {
 
-        if (isset($_POST["scoreNumber"]) && is_int($_POST["scoreNumber"])) {
-            $scoreNumber = ($_POST["scoreNumber"]);
+        if (isset($_POST["score_number"]) && is_int($_POST["score_number"])) {
+            $score_number = ($_POST["score_number"]);
         }
         else {
-            $scoreNumber = 10;
+            $score_number = 10;
         }
 
-        $scores = $this -> model -> bestScores($scoreNumber);
+        $scores = $this -> model -> bestScores($score_number);
         $this -> view -> displayLeaderboard($scores);
     }
 
     // Affichage du meilleur score du joueur
     public function bestPersonalScore() {
 
-        if (isset($_POST["idUser"]) && is_int($_POST["idUser"])) {
+        if (isset($_POST["id_user"]) && is_int($_POST["id_user"])) {
             $score = $this -> model -> bestPersonalScore($id_user);
             $this -> view -> displayPersonalScore($score);
         }

@@ -8,18 +8,18 @@ class ModelScore extends ModelBase
 
     /**
      * Insère un nouveau score dans la table
-     * @param int $idUser
-     * @param float $flightTime
+     * @param int $id_user
+     * @param float $time
      * @param float $distance
      * @return bool  $result 
      */
-    public function insertScore($idUser, $flightTime, $distance, $score) {
+    public function insertScore($id_user, $time, $distance, $score) {
         $request = $this -> database -> prepare ("INSERT INTO score(id, flight_time, distance, score, id_user) 
-                                                VALUES (null, :flightTime, :distance, :score, :idUser)");
-        $request -> bindParam(":flightTime", $flightTime);
+                                                VALUES (null, :time, :distance, :score, :id_user)");
+        $request -> bindParam(":time", $time);
         $request -> bindParam(":distance", $distance);
         $request -> bindParam(":score", $score);
-        $request -> bindParam(":idUser", $idUser);
+        $request -> bindParam(":id_user", $id_user);
         $result = $request -> execute();
 
         return $result;
@@ -27,16 +27,16 @@ class ModelScore extends ModelBase
 
     /**
      * Récupère la liste des meilleurs scores
-     * @param int $scoreNumber
+     * @param int $score_number
      * @return array $scores
      */
-    public function bestScores($scoreNumber) {
+    public function bestScores($score_number) {
         $request = $this -> database -> prepare("SELECT user.name, score.score, score.flight_time, score.distance
                                                 FROM score
                                                 JOIN user ON score.user_id = user.id
                                                 ORDER BY score.score DESC
-                                                LIMIT :scoreNumber");
-        $request -> bindParam(":scoreNumber", $scoreNumber);
+                                                LIMIT :score_number");
+        $request -> bindParam(":score_number", $score_number);
         $request -> execute();
         $scores = $request -> fetchALL(PDO::FETCH_NUM);
 
