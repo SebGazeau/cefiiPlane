@@ -22,7 +22,8 @@ Suppression:
 
 MVC Flight:
 
-ajout: newFlight()
+ajout: index.php?controller=Flight&action=newFlight
+@param $_SESSION['id_user'] : identifiant de l'utilisateur
 
 mise à jour: 
 
