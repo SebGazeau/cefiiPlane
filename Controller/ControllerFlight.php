@@ -11,12 +11,12 @@ class ControllerHome extends ControllerBase
 
 /* Création d'un vol*/
 public function newFlight() {
-    var_dump($_SESSION)
-    if(isset($_SESSION['id_user'])&&(is_int($_SESSION['id_user']))){
+    var_dump($_SESSION);
+    if(isset($_SESSION['id_user'])&&(is_int($_SESSION['id_user'])){
         $user=$_SESSION['id_user'];
         if($this->model->newFlight2($user)){
             $this->model->recordFlight();
-        };
+        }
     }else{
         $this->view displayErreur();
     }
