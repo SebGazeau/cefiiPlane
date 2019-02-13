@@ -30,7 +30,7 @@ class ControllerRegister extends ControllerBase
                     
                     if(preg_match($regex_email,$info['email'])){
                         
-                        $regex_pseudo = "(^[a-zA-Z]{1,20}[0-9]{0,9}$)";
+                        $regex_pseudo = "(^[a-zA-Z_-]{1,20}[0-9]{0,9}$)";
                         
                           if (strlen($info['name'])>2 &&
                               strlen($info['name'])<=20 &&
