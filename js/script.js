@@ -10,7 +10,7 @@ function popScore() {
     //    console.log (slide);
 
     if (transp == "1") {
-        $("#popupForm,img").css('opacity', '0.2');
+        $("#popupForm,img").css('opacity', '0.65');
     } else {
         $("#popupForm,img").css('opacity', '1');
     }
