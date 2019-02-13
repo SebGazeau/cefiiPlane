@@ -12,6 +12,18 @@
     <canvas id="myChart" style="position: relative; height:40vh; width:80vw" -->></canvas>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
+        
+        $.ajax({
+                url: "",
+                type: "POST",
+                data: pays,
+                success: function(response) {
+                    if(pays != "pays=") {
+                        $("datalist").html(response);
+                    } 
+                }
+        });
+        
         var scatterChart = new Chart(ctx, {
             type: 'scatter',
             data: {

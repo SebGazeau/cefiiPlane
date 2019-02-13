@@ -51,8 +51,10 @@ class ModelScore extends ModelBase
     public function bestPersonalScore($id_user) {
         $request = $this -> database -> prepare("SELECT score.score, score.flight_time, score.distance
                                                 FROM score
+                                                WHERE id_user = :id_user
                                                 ORDER BY score DESC
                                                 LIMIT 1");
+        $request -> bindParam(":id_user", $id_user);
         $request -> execute();
         $score = $request -> fetch(PDO::FETCH_NUM);
 
