@@ -6,72 +6,79 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <style type="text/css">
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+        }
+
+    </style>
 </head>
 
 <body>
-    <canvas id="myChart" style="position: relative; height:40vh; width:80vw" -->></canvas>
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+    
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        
+        var ctx = document.getElementById('chart').getContext('2d');
+        var table = "altitude";
+        var param = {
+            // numéro de vol
+            "id_flight": 3,
+            // colonne à afficher (on_off, speed, take_off, altitude, fuel_level, crash)
+            "table": table
+        } 
+
         $.ajax({
-                url: "",
+                url: "../index.php?controller=blackBox&action=displayGraph",
                 type: "POST",
-                data: pays,
+                data: param,
+                dataType: "json",
                 success: function(response) {
-                    if(pays != "pays=") {
-                        $("datalist").html(response);
-                    } 
+                    chart(response, table);
                 }
         });
-        
-        var scatterChart = new Chart(ctx, {
-            type: 'scatter',
-            data: {
-                datasets: [{
-                    label: 'Scatter Dataset',
-                    responsive: false,
-                    showLine: true,
-                    lineTension: 0,
-                    borderColor: "#5008D1",
-                    data: [{
-                        x: -10,
-                        y: 0
-                    }, {
-                        x: 0,
-                        y: 10
-                    }, {
-                        x: 10,
-                        y: 5
-                    }, {
-                        x: 20,
-                        y: 30
-                    }, {
-                        x: 21,
-                        y: 40
-                    }, {
-                        x: 25,
-                        y: 70
-                    }, {
-                        x: 28,
-                        y: 80
-                    }, {
-                        x: 50,
-                        y: 81
-                    }, {
-                        x: 75,
-                        y: 125
+
+
+        function chart(response, table) {
+            var scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        aspectRatio: 1,
+                        label: table,
+                        responsive: false,
+                        showLine: true,
+                        lineTension: 0,
+                        borderColor: "#5008D1",
+                        data: response
                     }]
-                }]
-            },
-            options: {
-                scales: {
-                    xAxes: [{
-                        type: 'linear',
-                        position: 'bottom',
-                    }]
+                },
+                options: {
+                    aspectRatio: 4,
+                    scales: {
+                        xAxes: [{
+                            type: 'linear',
+                            position: 'bottom',
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'time'
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: table
+                            }
+                        }],
+                    }
                 }
-            }
-        });
+            });
+        }
+
     </script>
 </body>
 
