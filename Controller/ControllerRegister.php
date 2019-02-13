@@ -33,13 +33,13 @@ class ControllerRegister extends ControllerBase
                         $regex_pseudo = "(^[a-zA-Z]{1,20}[0-9]{0,9}$)";
                         
                           if (strlen($info['name'])>2 &&
-                              strlen($info['name'])<=10 &&
+                              strlen($info['name'])<=20 &&
                               preg_match($regex_pseudo , $info['name'])){
                               
-                              $regex_password = "^(?=.*[a-zA-Z])(?=.[0-9])^";
+                              $regex_password = "(^[a-zA-Z]{0,20}[0-9]{0,20}$)";
                               
-                              if (strlen($info['name'])>4 &&
-                                  strlen($info['name'])<=12 &&
+                              if (strlen($info['password'])>=4 &&
+                                  strlen($info['password'])<=18 &&
                                   preg_match($regex_password , $info['password'])  
                                 ){
             

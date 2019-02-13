@@ -34,6 +34,7 @@ public function getIdUser($email){
         $requete->bindParam(':email',$email);
     $result = $requete -> execute();
         $id = $requete -> fetchALL(PDO::FETCH_NUM);
+    $id= $id[0][0];
         return $id;
     }
 }
