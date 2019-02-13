@@ -1,15 +1,13 @@
 <?php
 
-class ViewHome extends ViewBase
-{
-    public function __construct() {
-        parent::__construct();
-    }
+class ViewHome extends ViewBase {
+	public function __construct() {
+		parent::__construct();
+	}
 
-
-public function displayForm(){
-    echo '
-   <form action="index.php?controller=Register&action=addUser" method="post">
+	public function displayForm() {
+		echo '
+   <form action="index.php?controller=Login&action=login" method="post">
     <ul>
         <li>
             <label for="pseudo">Pseudo</label>
@@ -28,5 +26,5 @@ public function displayForm(){
     </form>
 
     ';
-}
+	}
 }
