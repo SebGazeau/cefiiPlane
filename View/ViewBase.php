@@ -10,7 +10,7 @@ abstract class ViewBase
     }
 
     public function displayPage($page) {
-        $this -> pageHTML .= file_get_contents("View/cefiiPlane-front/" . lcfirst($page) . ".html");
+        $this -> pageHTML .= file_get_contents("View/CefiiPlane-front/" . lcfirst($page) . ".html");
         $this -> displayHTML();
     }
 

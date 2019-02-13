@@ -61,7 +61,6 @@ class ControllerRegister extends ControllerBase
                 
                 //id= id du compte recuperer en db
                 //on l'ajoute au $_SESSION['id_user] pour que l'utilisateur n'est pas besoin de se connecter une fois son colpte creer
-
             $_SESSION['id_user']=$id;
 
             } // Fin du esle
