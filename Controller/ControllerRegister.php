@@ -36,7 +36,7 @@ class ControllerRegister extends ControllerBase
                               strlen($info['name'])<=10 &&
                               preg_match($regex_pseudo , $info['name'])){
                               
-                              $regex_password = "^(?=.*[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{3,})";
+                              $regex_password = "^(?=.*[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{3,})^";
                               
                               if (preg_match($regex_password , $info['password'])  
                                 ){
