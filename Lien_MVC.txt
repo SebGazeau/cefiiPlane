@@ -1,15 +1,10 @@
-MVC Score:
+MVC Scores:
 
-ajout: index.php?controller=score&action=newScore
-@param $_POST["id_user"] : id de l'utilisateur
-@param $_POST["time"] : temps de vol
-@param $_POST["distance"] : distance de vol
+ajout:
 
-meilleurs scores: index.php?controller=score&action=leaderboard
-@param $_POST["score_number"] : nombre de scores à afficher
+mise à jour:
 
-meilleur score personnel : index.php?controller=score&action=bestPersonalScore
-@param $_POST["id_user"] : id de l'utilisateur
+Suppression:
 
 MVC Black_Box:
 
@@ -21,15 +16,15 @@ Suppression:
 
 MVC Flight:
 
-ajout:
+ajout: newFlight()
 
-mise à jour:
+mise à jour: 
 
 Suppression:
 
 MVC Register:
 
-ajout: index.php?controller=Register&action=addUser
+ajout:
 
 MVC Login:
 
