@@ -27,6 +27,12 @@ class ViewBlackBox extends ViewBase {
         $this->pageHTML .= "</table>";
         $this->displayHTML();
     }
+
+    // Encode les données pour le graphique
+    public function displayDataGraph($chart) {
+        echo json_encode($chart);
+    }
+
     public function displayBlackBoxError() {
         $this->pageHTML .= "<p>Erreur de connexion.</p>";
         $this->pageHTML .= file_get_contents("View/html/home.html");

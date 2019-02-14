@@ -24,12 +24,12 @@
     
     <script>
         var ctx = document.getElementById('chart').getContext('2d');
-        var table = "altitude";
+        var column = "take_off";
         var param = {
             // numéro de vol
             "id_flight": 3,
             // colonne à afficher (on_off, speed, take_off, altitude, fuel_level, crash)
-            "table": table
+            "column": column
         } 
 
         $.ajax({
@@ -38,18 +38,18 @@
                 data: param,
                 dataType: "json",
                 success: function(response) {
-                    chart(response, table);
+                    chart(response, column);
                 }
         });
 
 
-        function chart(response, table) {
+        function chart(response, column) {
             var scatterChart = new Chart(ctx, {
                 type: 'scatter',
                 data: {
                     datasets: [{
                         aspectRatio: 1,
-                        label: table,
+                        label: column,
                         responsive: false,
                         showLine: true,
                         lineTension: 0,
@@ -58,7 +58,7 @@
                     }]
                 },
                 options: {
-                    aspectRatio: 4,
+                    aspectRatio: 3,
                     scales: {
                         xAxes: [{
                             type: 'linear',
@@ -71,7 +71,7 @@
                         yAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: table
+                                labelString: column
                             }
                         }],
                     }
