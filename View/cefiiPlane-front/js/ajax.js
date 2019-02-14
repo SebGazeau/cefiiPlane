@@ -5,8 +5,6 @@ $(document).ready(function ($) {
         $('form').attr('id', typeForm);
     });
 
-
-
     $("#submit").click(function () {
         var regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         var name = $('#name').val();
@@ -14,7 +12,7 @@ $(document).ready(function ($) {
         var email = $('#email').val();
         var form = $('form').attr('id');
         console.log(form);
-        if (name != '' && password != '' && email != '') {
+        if (name != '' && password != '' && email != '') {  
             if (regExp.test(email)) {
                 var param = "name=" + name + "&email=" + email + "&password=" + password;
                 $.ajax({
@@ -24,7 +22,7 @@ $(document).ready(function ($) {
                     success: function (data, statut) {
                         console.log(data);
                         if (data = "bonjour") {
-                           popForm();
+                            popForm();
                         } else {
                             alert("erreur");
                         }
@@ -43,6 +41,13 @@ $(document).ready(function ($) {
             alert('veuillez remplir tous les champs');
         }
     });
+    
+    jQuery("#testPopup").click(function() {
+        // enregistrement du score dans la BDD
+        insertScore();
+        // affichage des meilleurs scores
+        displayScores();
+    });
 
 });
 
@@ -51,4 +56,33 @@ function popForm() {
     jQuery("#popupForm").slideToggle();
     jQuery("body").not($(this)).css("opacity", "0.2");
     jQuery("body").not($(this)).css("opacity", "1");
+}
+
+function insertScore() {
+    var score = $("#scoreJoueur").text();
+    var distance = $("#distanceJoueur").text();
+    var time = $("#timeJoueur").text();
+    var param = {
+            // score final
+            "score": score,
+            // distance total
+            "distance": distance,
+            // temps final
+            "time": time
+        };
+    
+    $.ajax({
+        url: "index.php?controller=score&action=newScore",
+        type: "POST",
+        data: param,
+    });
+}
+
+function displayScores() {
+    $.ajax({
+        url: "index.php?controller=score&action=leaderboard",
+        success: function (data) {
+            $("#leaderboard tbody").html(data);
+        }
+    })
 }

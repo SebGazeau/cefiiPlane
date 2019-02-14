@@ -12,8 +12,8 @@ class ControllerScore extends ControllerBase
     // Insertion d'un nouveau score
     public function newScore() {
 
-        if (isset($_POST["id_user"]) && is_int($_POST["id_user"] + 0) && isset($_POST["time"]) && is_numeric($_POST["time"]) && isset($_POST["distance"]) && is_numeric($_POST["distance"])) {
-            $id_user = $_POST["id_user"];
+        if (isset($_SESSION["id_user"]) && is_int($_SESSION["id_user"] + 0) && isset($_POST["score"]) && is_numeric($_POST["score"]) && isset($_POST["time"]) && is_numeric($_POST["time"]) && isset($_POST["distance"]) && is_numeric($_POST["distance"])) {
+            $id_user = $_SESSION["id_user"];
             $time = $_POST["time"];
             $distance = $_POST["distance"];
             $score = $time + $distance;
@@ -36,7 +36,7 @@ class ControllerScore extends ControllerBase
             $score_number = ($_POST["score_number"]);
         }
         else {
-            $score_number = 10;
+            $score_number = 5;
         }
 
         $scores = $this -> model -> bestScores($score_number);

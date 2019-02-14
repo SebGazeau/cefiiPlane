@@ -19,10 +19,10 @@ class ViewScore extends ViewBase
 
         foreach($scores as $score) {
             $tr .= "<tr>";
-            $tr .= "<td>$ranking</td>";
+            $tr .= "<td>$ranking.</td>";
             $ranking++;
 
-            for($i = 0; $i <= 3; $i++) {
+            for($i = 0; $i <= 1; $i++) {
                 $tr .= "<td>$score[$i]</td>";
             }
 
