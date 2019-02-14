@@ -65,7 +65,7 @@ class ControllerLogin extends ControllerBase {
 				if ($passwordOk != "") {
 
 					$idUser              = $this->model->getUserId($PostEmail);
-					$_SESSION["id_user"] = $idUser;
+					$_SESSION["id_user"] = intval($idUser);
 
 					var_dump($_SESSION["id_user"]);
 					$this->view->displayGame($idUser);
