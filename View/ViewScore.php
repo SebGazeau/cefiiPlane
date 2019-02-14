@@ -34,6 +34,6 @@ class ViewScore extends ViewBase
 
     // Affichage du meilleur score personnel
     public function displayPersonalScore($score) {
-        echo "<tr><td>$score[0]</td><td>$score[1]</td><td>$score[2]</td>";
+        echo $score[0];
     }
 }
