@@ -21,6 +21,20 @@
        <br><input type="text" name="id_user" >
        <br><button type="submit">essayer</button> 
     </form>
+    <h2> sélection des vols d'un utilisateur</h2>
+    <form action="index.php?controller=Flight&action=selectFlight" method="POST">
+      <label for="id_user">id_user</label> 
+       <br><input type="text" name="id_user" >
+       <br><button type="submit">essayer</button> 
+    </form>
+    <h2> sélection des vols d'un utilisateur en select</h2>
+    <form action="index.php?controller=Flight&action=ajaxFlight" method="POST">
+      <label for="id_user">id_user</label> 
+       <br><input type="text" name="id_user" >
+       <br><button type="submit">essayer</button> 
+    </form>
+
+
     <h2>enregistrement de la boite noire</h2>
     <h2> test MVC de la boite noire</h2>
     <form action="index.php?controller=BlackBox&action=displayBlackBox" method="post">

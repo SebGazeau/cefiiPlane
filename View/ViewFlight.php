@@ -39,7 +39,7 @@ class ViewFlight extends ViewBase{
         
     public function ajaxFlight($list){
         
-            var_dump($list);        
+            /* var_dump($list);    */     
             $this->pageHTML .= "<select>";
             foreach ($list as $fly){
              if($_SESSION["id_flight"]==$fly[0]){

@@ -10,8 +10,8 @@ class ControllerFlight extends ControllerBase {
 
 /* Création d'un vol et retourne une $_SESSION*/
 public function newFlight() {
-    $_SESSION['id_user']=3; 
-    if(isset($_SESSION['id_user'])&&(is_int($_SESSION['id_user']))){
+    var_dump($_SESSION['id_user']);
+    if(isset($_SESSION['id_user']) && is_int($_SESSION['id_user'])){
         $user=$_SESSION['id_user'];
                 
         $this->model->newFlight($user);
@@ -24,11 +24,6 @@ public function newFlight() {
 /* sélection des vols d'un utilisateur*/    
 
 public function selectFlight(){
-    $_SESSION['id_user']=3;
-    $_SESSION['admin']=1;
-
- 
-
     $id_user=$_SESSION['id_user'];
    /*  var_dump($id_user); */
 
@@ -38,10 +33,6 @@ public function selectFlight(){
 }
 
 public function ajaxFlight(){
-    $_SESSION['id_user']=3;
-    $_SESSION['admin']=1;
-    $_SESSION['id_flight']=40;
- 
     $id_user=$_SESSION['id_user'];
    /*  var_dump($id_user); */
 
