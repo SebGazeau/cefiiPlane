@@ -41,6 +41,12 @@
     right: -115px;
     z-index:5;
 }
+#oiseau2{
+    position: absolute;
+    top: 100;
+    right: -100px;
+    z-index:5;
+}
 /* Helice */
 
 #conteneurElis{

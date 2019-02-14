@@ -23,7 +23,7 @@ $(document).ready(function ($) {
                     data: param,
                     success: function (data, statut) {
                         console.log(data);
-                        if (data == "connexion" || data =="inscription") {
+                        if (data == "connexion" || data == "inscription") {
                             popForm();
                         } else {
                             alert("erreur");

@@ -1,5 +1,6 @@
 body {
     position: relative;
+    font-size: 100%;
 }
 
 #popupFin {
@@ -134,4 +135,169 @@ section {
 
 .boutonFlex button {
     width: 20%
+}
+/* css animation zone section */
+
+
+#anim{
+    width: 100%;
+    height: 400px;
+}
+#imgfond {
+    width: 100%;
+    height: 500px;
+    background: url(../img/fond.jpg);
+    position: relative;
+    margin: 0 auto;
+    -webkit-animation: fond 10s;
+    animation: fond 10s infinite linear;
+    overflow: hidden;
+}
+#start{
+    position: relative;
+}
+
+#avionComplete{
+    z-index: 10;
+    position: absolute;
+    top: 380px;
+    left: 250px;
+    -webkit-transition: 0.1s;
+    transition:0.01s;
+}
+
+.nezHaut{
+	-webkit-transform: rotate(-20deg);
+	transform: rotate(-20deg);
+}
+.nezBas{
+    transform: rotate(20deg);
+}
+
+/* oiseau */
+#oiseau{
+    position: absolute;
+    top: 25px;
+    right: -115px;
+    z-index:5;
+}
+#oiseau2{
+    position: absolute;
+    top: 100;
+    right: -100px;
+    z-index:5;
+}
+/* Helice */
+
+#conteneurElis{
+   z-index:9999;
+   position:absolute;
+   top:0;
+   left:284px;
+
+}
+.rotationEli{
+   animation: rotation 0.1s linear infinite;
+}
+@keyframes rotation{
+   from { transform: rotateX(0deg)}
+   to{transform:  rotateX(360deg)}
+
+}
+
+/* css animation partie section */
+aside{
+    position:relative;
+    top: 120px;
+}
+
+#errmsg {
+    color: #ff0000;
+    display: none;
+}
+
+#wrapper {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#left {
+    float: left;
+    background: #191919;
+    border: 1px solid #292929;
+    color: #fff;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+
+#left input {
+    background: #333;
+    border: 1px solid #292929;
+    color: #fff;
+}
+
+
+p {
+    font-size: 2em;
+    font-weight: normal;
+}
+
+#gauge {
+    float: left;
+    margin-left: 40px;
+    width: 334px;
+    position: relative;
+    height: 260px;
+    border-radius: 75px;
+    background: #000 url(../img/speedometer-2.png) no-repeat;
+}
+
+#needle {
+    height: 5px;
+    width: 148px;
+    background: #ff0200;
+    position: absolute;
+    bottom: 97px;
+    left: 18px;
+}
+
+#numbers {
+    width: 140px;
+    height: 30px;
+    background: #191919;
+    position: absolute;
+    bottom: 10px;
+    left: 85px;
+    color: #fff;
+    font-size: 1.8em;
+    line-height: 1.34em;
+    font-family: "Courier New", Courier, monospace;
+    padding: 0px 10px 5px;
+    border: 1px solid #292929;
+}
+
+#circle {
+    width: 79px;
+    height: 79px;
+    background: url(../img/circle-3.png)no-repeat;
+    bottom: 59px;
+    left: 127px;
+    position: absolute;
+}
+
+/* reservoir */
+#reservoir {
+    z-index: 20;
+    width: 20%;
+    height: 5em;
+    background-color: grey;
+    border: 1px solid white;
+}
+
+#fuel {
+    z-index: 30;
+    height: 4.9em;
+    background-image: linear-gradient(to right, green, orange, red);
 }

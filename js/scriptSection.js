@@ -22,6 +22,7 @@ $(document).ready(function () {
         $('#conteneurElis').addClass('rotationEli');
         fond();
         dpcmtOiseau();
+        dpcmtOiseau2()
     });
 
 
@@ -30,11 +31,11 @@ $(document).ready(function () {
 
     
 
-    /*helice animation*/
+
 
 });
 
-function dpcmtAvion() {
+//function dpcmtAvion() {
     $("#avion").animate({
         left: "-200px"
     }, 2000, "linear", function () {
@@ -91,3 +92,14 @@ function dpcmtOiseau() {
     });
     setTimeout("dpcmtOiseau()", 1000);
 }
+
+function dpcmtOiseau2(){
+            $("#oiseau2").animate({left:"-200px"},2000,"linear",function(){
+                $(this).css("left","1400px");
+                var posY = Math.random()*200;
+                posY = Math.floor(posY);
+                $(this).css("top",posY+"px");
+                test=1;
+            });
+            setTimeout("dpcmtOiseau2()",1000);
+        }
