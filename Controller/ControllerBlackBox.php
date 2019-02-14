@@ -27,9 +27,9 @@ class ControllerBlackBox extends ControllerBase {
             $chart = $this -> model -> getDataChart($id_flight, $column);
             $this -> view -> displayDataGraph($chart);
         }
-        /* else {
+        else {
             $this->view->displayBlackBoxError();
-        } */
+        }
     }
 
     public function deleteData() {
