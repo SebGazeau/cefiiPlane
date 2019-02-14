@@ -17,6 +17,21 @@ class ControllerBlackBox extends ControllerBase {
         $infos = $this->model->getData($id_flight);
         $this->view->displayBlackBox($infos);
     }
+
+    // Renvoie les données nécessaires à l'affichage du graphique
+    public function displayGraph() {
+        if (isset($_POST["id_flight"]) && is_int($_POST["id_flight"] + 0) && isset($_POST["column"]) && ($_POST["column"] == "on_off" || $_POST["column"] == "speed" || $_POST["column"] == "take_off" || $_POST["column"] == "altitude" || $_POST["column"] == "fuel_level" || $_POST["column"] == "crash")) {
+            $id_flight = $_POST["id_flight"];
+            $column = $_POST["column"];
+
+            $chart = $this -> model -> getDataChart($id_flight, $column);
+            $this -> view -> displayDataGraph($chart);
+        }
+        else {
+            $this->view->displayBlackBoxError();
+        }
+    }
+
     public function deleteData() {
         if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             //$id_flight = $_SESSION['id_flight'];

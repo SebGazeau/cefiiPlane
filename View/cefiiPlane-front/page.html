@@ -51,17 +51,24 @@
                     <div class="popupFlex">
                         <h1>Score : </h1>
                         <div id="scoreJoueur">5789</div>
+                        <div id="distanceJoueur" style="display:none">3000</div>
+                        <div id="timeJoueur" style="display:none">2789</div>
                     </div>
                     <div class="popupFlex">
                         <h1>Best scores : </h1>
                         <div id="listeScore">
-                            <ul>
-                                <li>1er : 5687</li>
-                                <li>2ème : 4820</li>
-                                <li>3ème : 4581</li>
-                                <li>4ème : 3978</li>
-                                <li>5ème : 1578</li>
-                            </ul>
+                            <table id="leaderboard">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Pseudo</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+<!--                                    Insertion des scores en Ajax-->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div id="explication">

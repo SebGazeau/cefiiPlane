@@ -12,6 +12,24 @@ class ModelBlackBox extends ModelBase {
         $list = $request->fetchAll(PDO::FETCH_NUM);
         return $list;
     }
+
+    /**
+     * Récupère la liste des points nécessaires à l'affichage du graphique
+     * @param int $id_flight
+     * @return array $chart
+     */
+    public function getDataChart($id_flight, $column) {
+        $request = $this -> database -> prepare("SELECT time AS x, $column AS y
+                                                FROM black_box
+                                                WHERE id_flight = :id_flight 
+                                                ORDER BY id ASC ");
+        $request -> bindParam(":id_flight", $id_flight, PDO::PARAM_INT);
+        $result = $request -> execute();
+        $chart = $request -> fetchAll(PDO::FETCH_ASSOC);
+
+        return $chart;
+    }
+
     /**
      * Pour supprimer les informations de la boite noire
      * @param integer $id_flight
