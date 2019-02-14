@@ -1,37 +1,37 @@
 var temps = 1100;
 $(document).ready(function () {
-    $(document).keydown(
-        function acceleration(e) {
+    $(document).keydown(function acceleration(e) {
             var touche = e.which;
             switch (touche) {
                 case 39: //droite
                     console.log(touche);
-                    if(temps>400){
-                    temps -= 100;
+                    if (temps > 400) {
+                        temps -= 100;
                     }
                     break;
                 case 37: //gauche
                     console.log(touche);
-                    if(temps<1100){
-                    temps += 100;
+                    if (temps < 1100) {
+                        temps += 100;
                     }
                     break;
             }
 
         });
-    $("#start").click(function(){
+    $("#start").click(function () {
         $('#conteneurElis').addClass('rotationEli');
         fond();
+        dpcmtOiseau();
     });
-   /* fond();*/
+
 
     var test = 1;
     //            setInterval(collision, 20);
 
-    /* dpcmtOiseau();*/
+    
 
     /*helice animation*/
-    
+
 });
 
 function dpcmtAvion() {
@@ -71,9 +71,23 @@ $(document).keydown(function (e) {
 
 function fond() {
 
-    
+
     console.log(temps);
-        $("#imgfond").animate({
+    $("#imgfond").animate({
         backgroundPosition: "-=500px"
     }, temps, "linear", fond);
+}
+
+
+function dpcmtOiseau() {
+    $("#oiseau").animate({
+        left: "-100px"
+    }, 5000, "linear", function () {
+        $(this).css("left", "1400px");
+        var posY = Math.random() * 200;
+        posY = Math.floor(posY);
+        $(this).css("top", posY + "px");
+        test = 1;
+    });
+    setTimeout("dpcmtOiseau()", 1000);
 }

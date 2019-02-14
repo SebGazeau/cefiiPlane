@@ -13,12 +13,14 @@
     animation: fond 10s infinite linear;
     overflow: hidden;
 }
-
+#start{
+    position: relative;
+}
 
 #avionComplete{
     z-index: 10;
     position: absolute;
-    top: 400px;
+    top: 380px;
     left: 250px;
     -webkit-transition: 0.1s;
     transition:0.01s;
@@ -31,13 +33,14 @@
 .nezBas{
     transform: rotate(20deg);
 }
+
+/* oiseau */
 #oiseau{
     position: absolute;
-    top: 0;
-    left: 400px;
-    z-index:2;
+    top: 25px;
+    right: -115px;
+    z-index:5;
 }
-
 /* Helice */
 
 #conteneurElis{
