@@ -1,0 +1,49 @@
+body{
+    background:slategray;
+    font-family:Arial;
+}
+
+#boutons{
+display:flex;
+justify-content:space-around;
+    margin-bottom:6em;
+}
+
+#tab{
+    width:6em;
+   height:3em;
+    font-weight:bold;
+    
+}
+
+#graph{
+    width:6em;
+   height:3em;
+        font-weight:bold;
+
+}
+
+
+
+#content1{
+    width:60%;
+}
+
+table{
+    width:100%;
+}
+
+th{
+    color:white;
+    background:gray;
+}
+
+td
+{
+ height:3em;   
+}
+
+main{
+    display:flex;
+justify-content:center;
+}
