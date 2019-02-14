@@ -23,14 +23,37 @@ class ViewFlight extends ViewBase{
         foreach ($list as $fly){
             $this->pageHTML .="<tr>";
             $this->pageHTML .="<td>".$fly[0]. "</td>";
-            $this->pageHTML .="<td><a href='index.php?controller=Flight&action=supprFlight&id=".$fly[0]."'>Supprimer</a></td>";
-            
+            if($_SESSION['admin']) {
+                $this->pageHTML .="<td><a href='index.php?controller=Flight&action=supprFlight&id=".$fly[0]."'>Supprimer</a></td>";
+            };    
             $this->pageHTML .="</tr>";
         }
         
         $this->pageHTML .= "</table>";
         $this -> displayHTML();
         }
+
+
+
+
+        
+    public function ajaxFlight($list){
+        
+            var_dump($list);        
+            $this->pageHTML .= "<select>";
+            foreach ($list as $fly){
+             if($_SESSION["id_flight"]==$fly[0]){
+                $this->pageHTML .="<option value='".$fly[0]."' selected>".$fly[0];
+             }else{
+                $this->pageHTML .="<option value='".$fly[0]."' >".$fly[0];
+             }
+
+                $this->pageHTML .="</option>";
+            }
+            $this->pageHTML .="</select>";
+            
+            $this -> displayHTML();
+    }    
 
 } 
        

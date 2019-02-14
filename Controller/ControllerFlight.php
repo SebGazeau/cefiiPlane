@@ -24,12 +24,31 @@ public function newFlight() {
 /* sélection des vols d'un utilisateur*/    
 
 public function selectFlight(){
+    $_SESSION['id_user']=3;
+    $_SESSION['admin']=1;
+
+ 
+
     $id_user=$_SESSION['id_user'];
    /*  var_dump($id_user); */
 
     $list=$this->model->selectFlight($id_user);
     $this->view->selectFlight($list);
+    
 }
+
+public function ajaxFlight(){
+    $_SESSION['id_user']=3;
+    $_SESSION['admin']=1;
+    $_SESSION['id_flight']=40;
+ 
+    $id_user=$_SESSION['id_user'];
+   /*  var_dump($id_user); */
+
+    $list=$this->model->selectFlight($id_user);
+    $this->view->ajaxFlight($list);
+}
+
 
 public function supprFlight(){
     $id=$_GET['id'];
