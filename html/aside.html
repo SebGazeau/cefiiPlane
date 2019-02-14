@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>aside</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styleAside.css">
     <meta name="viewport" content="width=device-width, initiale-scale=1" />
 
 
     <link rel="stylesheet" href="../css/font/web_fonts/silkscreen_normal_macroman/stylesheet.css" type="text/css" charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <script src="js/ajax.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/easing/EasePack.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenLite.min.js"></script>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <script src="../js/scriptAside.js"></script>
 
 </head>
@@ -24,14 +29,32 @@
 
     </section>
     <aside>
-    <form action="#">
-        <input type="text" id="number">
-        <input type="text" id="chrono">
-    </form>
-    
-    <div id="reservoir">
-        <div id="fuel"></div>
-    </div>
+        <form action="#">
+            <input type="text" id="number">
+            <input type="text" id="chrono">
+        </form>
+
+        <div id="reservoir">
+            <div id="fuel"></div>
+        </div>
+
+        <!--  Plugin Speedometer  -->
+        <div id="wrapper">
+            <div id="left">
+                <div>
+                    <label for='miles'>Miles:</label> <input type="text" name="miles" id="miles" />
+                </div>
+                <div>
+                    <label for='kilometers'>Kilometers:</label> <input type="text" name="kilometers" id="kilometers" />
+                </div>
+                <p id="errmsg"></p>
+            </div>
+            <div id="gauge">
+                <div id="circle"></div>
+                <div id="numbers"></div>
+                <div id="needle"></div>
+            </div>
+        </div>
 
     </aside>
 </body>
