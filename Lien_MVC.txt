@@ -14,7 +14,9 @@ meilleur score personnel : index.php?controller=score&action=bestPersonalScore
 
 MVC Black_Box:
 
-ajout:
+données du graphique: index.php?controller=blackBox&action=displayGraph
+@param $_POST["id_flight"] : id du vol
+@param $_POST["column"] : colonne de la table black_box à afficher
 
 mise à jour:
 
