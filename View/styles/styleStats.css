@@ -1,41 +1,54 @@
-body{
+body, html{height:100%;}
+
+#stats {
     background:slategray;
     font-family:Arial;
     text-align: center;
+	min-height: 100%;
 }
 
-#boutons{
+#stats #boutons{
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:distribute;
     justify-content:space-around;
-    margin-bottom:6rem;
+    margin-bottom:1rem;
 }
 
-#content1{
+#stats #content1{
     width:60%;
 }
 
-canvas {
+#stats canvas {
     background-color: white;
 }
 
-button {
+#stats button {
     padding: 1rem 2rem;
 }
 
-table{
-    margin: auto;
+#stats #content1 {
+	margin: auto;
+}
+
+#stats table{
     width: 100%;
 }
 
-th{
+#stats th{
     color:white;
     background:gray;
 }
 
-td
+#stats td
 {
  height:3em;   
 }
+
+.chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+        }

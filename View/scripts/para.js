@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 function bestScore() {
     $.ajax({
-        url: "../index.php?controller=score&action=bestPersonalScore",
+        url: "index.php?controller=score&action=bestPersonalScore",
         success: function (data) {
             $("#bestScore").text(data);
         }
@@ -50,7 +50,7 @@ function displayGraph() {
     }
     
     $.ajax({
-            url: "../index.php?controller=blackBox&action=displayGraph",
+            url: "index.php?controller=blackBox&action=displayGraph",
             type: "POST",
             data: param,
             dataType: "json",
@@ -98,7 +98,7 @@ function chart(response, column, ctx) {
 
 function optionsIdFlight() {
     $.ajax({
-        url: "../index.php?controller=flight&action=ajaxFlight",
+        url: "index.php?controller=flight&action=ajaxFlight",
         success: function (data) {
             $("#id_flight").html(data);
             displayGraph();
@@ -108,7 +108,7 @@ function optionsIdFlight() {
 
 function displayStats() {
     $.ajax({
-        url: "../index.php?controller=blackBox&action=displayFlight",
+        url: "index.php?controller=blackBox&action=displayFlight",
         success: function (data) {
             console.log(data);
             $("#content1 tbody").html(data);
