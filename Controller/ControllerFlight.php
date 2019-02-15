@@ -20,6 +20,7 @@ public function newFlight() {
         $this->view->displayErreur();
          }
     }
+    
 
 /* sélection des vols d'un utilisateur*/    
 
