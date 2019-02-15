@@ -15,7 +15,7 @@ class ViewLogin extends ViewBase {
 	}
 
 	public function displayGameAdmin() {
-		echo "you are on the page admin";
+		echo "you are on the page admin!!";
 	}
 
 	public function erreur($message) {
