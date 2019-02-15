@@ -25,6 +25,7 @@ $(document).ready(function () {
     
     bestScore();
     optionsIdFlight();
+    
     displayStats();
     $("#column, #id_flight").change(displayGraph);
 });
@@ -39,25 +40,27 @@ function bestScore() {
 }
 
 function displayGraph() {
-    var ctx = document.getElementById('scatterChart').getContext('2d');
-    var column = $("#column").val();
-    var id_flight = $("#id_flight").val();
-    var param = {
-        // numéro de vol
-        "id_flight": id_flight,
-        // colonne à afficher (on_off, speed, take_off, altitude, fuel_level, crash)
-        "column": column
+    if ($("#scatterChart").length) {
+        var ctx = $("#scatterChart").get(0).getContext('2d');
+        var column = $("#column").val();
+        var id_flight = $("#id_flight").val();
+        var param = {
+            // numéro de vol
+            "id_flight": id_flight,
+            // colonne à afficher (on_off, speed, take_off, altitude, fuel_level, crash)
+            "column": column
+        }
+
+        $.ajax({
+                url: "index.php?controller=blackBox&action=displayGraph",
+                type: "POST",
+                data: param,
+                dataType: "json",
+                success: function(response) {
+                    chart(response, column, ctx);
+                }
+            });
     }
-    
-    $.ajax({
-            url: "index.php?controller=blackBox&action=displayGraph",
-            type: "POST",
-            data: param,
-            dataType: "json",
-            success: function(response) {
-                chart(response, column, ctx);
-            }
-        });
 }
 
 function chart(response, column, ctx) {
@@ -110,7 +113,6 @@ function displayStats() {
     $.ajax({
         url: "index.php?controller=blackBox&action=displayFlight",
         success: function (data) {
-            console.log(data);
             $("#content1 tbody").html(data);
         }
     })
