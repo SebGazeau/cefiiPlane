@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="para.js"></script>
     <link rel="stylesheet" href="styleStats.css">
 
@@ -81,7 +82,9 @@
     </div>
 
     <div id="content2">
-<img src="3_fedora-100732816-large.3x2.jpg">
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
     </div>
 </main>
 </body>

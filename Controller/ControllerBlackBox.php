@@ -94,7 +94,7 @@ class ControllerBlackBox extends ControllerBase {
         }
     }
     public function addData() {
-        if ((isset($_SESSION['admin'])) && $_SESSION['admin']) {
+        if (isset($_SESSION['admin']) && $_SESSION['admin']) {
             $blackox = $_POST;
             $this->model->addData($blackBox);
 
