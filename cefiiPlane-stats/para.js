@@ -6,7 +6,7 @@ $(document).ready(function () {
         "display": "none"
     })
     
-    $('#tab').on("click", function () {
+    $('#board').on("click", function () {
         $("#content1").css({
             "display": "block"
         });
@@ -14,7 +14,7 @@ $(document).ready(function () {
             "display": "none"
         });
     })
-    $('#graph').on("click", function () {
+    $('#chart').on("click", function () {
         $("#content1").css({
             "display": "none"
         });
@@ -24,7 +24,9 @@ $(document).ready(function () {
     });
     
     bestScore();
-    displayGraph();
+    optionsIdFlight();
+    displayStats();
+    $("#column, #id_flight").change(displayGraph);
 });
 
 function bestScore() {
@@ -37,11 +39,12 @@ function bestScore() {
 }
 
 function displayGraph() {
-    var ctx = document.getElementById('chart').getContext('2d');
-    var column = "take_off";
+    var ctx = document.getElementById('scatterChart').getContext('2d');
+    var column = $("#column").val();
+    var id_flight = $("#id_flight").val();
     var param = {
         // numéro de vol
-        "id_flight": 3,
+        "id_flight": id_flight,
         // colonne à afficher (on_off, speed, take_off, altitude, fuel_level, crash)
         "column": column
     }
@@ -52,13 +55,12 @@ function displayGraph() {
             data: param,
             dataType: "json",
             success: function(response) {
-                chart(response, column);
+                chart(response, column, ctx);
             }
         });
 }
 
-function chart(response, column) {
-    console.log(response);
+function chart(response, column, ctx) {
     var scatterChart = new Chart(ctx, {
         type: 'scatter',
         data: {
@@ -92,4 +94,24 @@ function chart(response, column) {
             }
         }
     });
+}
+
+function optionsIdFlight() {
+    $.ajax({
+        url: "../index.php?controller=flight&action=ajaxFlight",
+        success: function (data) {
+            $("#id_flight").html(data);
+            displayGraph();
+        }
+    })
+}
+
+function displayStats() {
+    $.ajax({
+        url: "../index.php?controller=blackBox&action=displayFlight",
+        success: function (data) {
+            console.log(data);
+            $("#content1 tbody").html(data);
+        }
+    })
 }

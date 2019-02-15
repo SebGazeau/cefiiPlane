@@ -39,8 +39,6 @@ class ModelLogin extends ModelBase {
 
 	public function checkAdmin() {
 
-		// var_dump($_SESSION);
-
 		$requete = $this->database->prepare("SELECT * FROM `user` WHERE `acces` = :acces");
 
 		$requete->bindParam(":acces", $Acces);
@@ -64,8 +62,6 @@ class ModelLogin extends ModelBase {
 		$userId = $requete->fetch(PDO::FETCH_ASSOC);
 
 		return $userId;
-		var_dump($userId);
-		die;
 
 	}
 

@@ -24,18 +24,16 @@ public function selectFlight($id_user){
     $requete->execute();
     $list=$requete->fetchAll(PDO::FETCH_NUM);    
        /*   var_dump($list);*/
-        return $list;
-        } 
+    return $list;
+    }
+
+
 
 public function supprFlight($id){
     $requete = $this->database->prepare("DELETE FROM flight WHERE id=:id");
     $requete->bindParam(':id',$id);    
     $resultat=$requete->execute();    
-        return $resultat;
-    } 
-
-
+    return $resultat;
 }
 
-
-
+}
