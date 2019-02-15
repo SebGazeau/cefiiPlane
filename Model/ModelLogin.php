@@ -37,15 +37,17 @@ class ModelLogin extends ModelBase {
 
 	}
 
-	public function checkAdmin() {
+	public function checkAdmin($PostEmail) {
 
-		$requete = $this->database->prepare("SELECT * FROM `user` WHERE `acces` = :acces");
+		// var_dump($_SESSION);
 
-		$requete->bindParam(":acces", $Acces);
+		$requete = $this->database->prepare("SELECT `acces` FROM `user` WHERE `email`  = :email");
+
+		$requete->bindParam(":email", $PostEmail);
 
 		$requete->execute();
 
-		$adminOk = $requete->fetch(PDO::FETCH_ASSOC);
+		$adminOk = $requete->fetch(PDO::FETCH_NUM)[0];
 
 		return $adminOk;
 
@@ -62,6 +64,59 @@ class ModelLogin extends ModelBase {
 		$userId = $requete->fetch(PDO::FETCH_ASSOC);
 
 		return $userId;
+		var_dump($userId);
+		die;
+
+	}
+
+	public function getList() {
+
+		$requete = "SELECT * FROM user";
+		$resultat = $this->database->query($requete);
+		$listUser = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+		return $listUser;
+
+	}
+
+	public function DeleteThisItem($itemId) {
+
+		$requete = $this->database->prepare("DELETE FROM `user` WHERE `user`.`id` = :id ");
+		$requete->bindParam(":id", $itemId);
+		$requete->execute();
+		var_dump($itemId);
+
+	}
+
+	public function modifItem($postName, $postEmail, $postPassword, $postAcces, $itemId) {
+
+		$requete = $this->database->prepare("UPDATE `user` SET `name` = :name, `email` = :email, `password` = :password, `acces` = :acces WHERE `user`.`id` = :id");
+
+		$requete->bindParam(":name", $postName);
+		$requete->bindParam(":email", $postEmail);
+		$requete->bindParam(":password", $postPassword);
+		$requete->bindParam(":acces", $postAcces);
+		$requete->bindParam(":id", $itemId);
+		$requete->execute();
+
+		$requete->fetch(PDO::FETCH_ASSOC);
+		$modifOk = $requete;
+
+		return $modifOk;
+
+	}
+
+	public function getUserInfo($id) {
+
+		$requete = $this->database->prepare("SELECT * FROM `user` WHERE `id` = :id");
+
+		$requete->bindParam(":id", $id);
+		$requete->execute();
+
+		$userInfo = $requete->fetch(PDO::FETCH_ASSOC);
+		// var_dump($userInfo);
+
+		return $userInfo;
 
 	}
 

@@ -11,11 +11,11 @@ class ControllerLogin extends ControllerBase {
 
 	public function login() {
 
-		$PostEmail    = $_POST['email'];
+		$PostEmail = $_POST['email'];
 		$PostPassword = $_POST['password'];
 
 		$passwordOk = $this->model->checkPasswordUser($PostEmail, $PostPassword);
-		$mailOk     = $this->model->checkMailUser($PostEmail);
+		$mailOk = $this->model->checkMailUser($PostEmail);
 
 		// =================start check that the Post are not empty ==========================
 
@@ -24,7 +24,7 @@ class ControllerLogin extends ControllerBase {
 			$message = "your fields are empty! Please try again ";
 			$this->view->erreur($message);
 		} elseif ($PostEmail == "") {
-			$message = "You haven't entered your email! Please enter your email!!";
+			$message = "You haven't entered your email! Please enter your email!";
 			$this->view->erreur($message);
 		} elseif ($PostPassword == "") {
 
@@ -60,12 +60,22 @@ class ControllerLogin extends ControllerBase {
 						// =================start check password DBB==========================
 
 						if ($passwordOk != "") {
+							$adminOk = $this->model->checkAdmin($PostEmail);
+							$idUser = $this->model->getUserId($PostEmail);
+							$_SESSION["id_user"] = $idUser;
+							$_SESSION["admin"] = $adminOk;
+							// var_dump($_SESSION["admin"]);
+							// die;
+							if ($adminOk == "1") {
 
-							$idUser              = $this->model->getUserId($PostEmail);
-							$_SESSION["id_user"] = intval($idUser);
+								$listUser = $this->model->getList();
+								$this->view->displayAdmin($listUser);
 
-							var_dump($_SESSION["id_user"]);
-							$this->view->displayGame($idUser);
+							} else {
+
+								$this->view->displayGame($idUser);
+
+							}
 
 						} elseif ($passwordOk == "") {
 							$message = "Your password is incorrect please try!";
@@ -76,18 +86,59 @@ class ControllerLogin extends ControllerBase {
 					// =================End check password DBB==========================
 
 				} else {
-					echo "password is not good";
+					echo "Your password is not in the right format";
 				}
 
 			} else {
 
-				echo "email is not good";
+				echo "Your email is not in the right format";
 			}
 
 			// =================End Test regex==========================
 
 		}
 
+	}
+
+	public function deleteUser() {
+		$itemId = $_GET['id'];
+		$delete = $this->model->DeleteThisItem($itemId);
+		$listUser = $this->model->getList();
+		$this->view->displayAdmin($listUser);
+
+	}
+
+	public function modifForm() {
+		if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+			$id = $_GET['id'];
+			$userInfo = $this->model->getUserInfo($id);
+			$this->view->displayModifFrom($userInfo, $id);
+
+		}
+
+	}
+
+	public function modifUser() {
+
+		// $FormPost     = $_POST;
+
+		$itemId = $_GET['id'];
+		$postName = $_POST['name'];
+		$postEmail = $_POST['email'];
+		$postPassword = $_POST['password'];
+		$postAcces = $_POST['acces'];
+		var_dump($_POST);
+
+		$update = $this->model->modifItem($postName, $postEmail, $postPassword, $postAcces, $itemId);
+
+		$listUser = $this->model->getList();
+		$this->view->displayAdmin($listUser);
+
+	}
+
+	public function logout() {
+		session_destroy();
+		$this->view->GoBackToLoginPage();
 	}
 
 }
