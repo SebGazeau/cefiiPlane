@@ -1,7 +1,10 @@
+body, html{height:100%;}
+
 #stats {
     background:slategray;
     font-family:Arial;
     text-align: center;
+	min-height: 100%;
 }
 
 #stats #boutons{
@@ -10,7 +13,7 @@
     display:flex;
     -ms-flex-pack:distribute;
     justify-content:space-around;
-    margin-bottom:6rem;
+    margin-bottom:1rem;
 }
 
 #stats #content1{
@@ -42,3 +45,10 @@
 {
  height:3em;   
 }
+
+.chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 80vw;
+        }
