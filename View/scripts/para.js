@@ -39,7 +39,7 @@ function bestScore() {
 }
 
 function displayGraph() {
-    var ctx = document.getElementById('scatterChart').getContext('2d');
+    var ctx = $("#scatterChart").get(0).getContext('2d');
     var column = $("#column").val();
     var id_flight = $("#id_flight").val();
     var param = {
@@ -110,7 +110,6 @@ function displayStats() {
     $.ajax({
         url: "index.php?controller=blackBox&action=displayFlight",
         success: function (data) {
-            console.log(data);
             $("#content1 tbody").html(data);
         }
     })
