@@ -45,6 +45,7 @@ class ControllerScore extends ControllerBase
 
     // Affichage du meilleur score du joueur
     public function bestPersonalScore() {
+        $_SESSION["id_user"] = 1;
         if (isset($_SESSION["id_user"]) && is_int($_SESSION["id_user"] + 0)) {
             $id_user = $_SESSION["id_user"];
 
