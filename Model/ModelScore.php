@@ -49,7 +49,7 @@ class ModelScore extends ModelBase
      * @return array $scores
      */
     public function bestPersonalScore($id_user) {
-        $request = $this -> database -> prepare("SELECT score.score, score.flight_time, score.distance
+        $request = $this -> database -> prepare("SELECT score
                                                 FROM score
                                                 WHERE id_user = :id_user
                                                 ORDER BY score DESC
