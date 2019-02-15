@@ -71,7 +71,7 @@ class ModelLogin extends ModelBase {
 
 	public function getList() {
 
-		$requete = "SELECT * FROM user";
+		$requete  = "SELECT * FROM user";
 		$resultat = $this->database->query($requete);
 		$listUser = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
@@ -121,3 +121,5 @@ class ModelLogin extends ModelBase {
 	}
 
 }
+
+// 1

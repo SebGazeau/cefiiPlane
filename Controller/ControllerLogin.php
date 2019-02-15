@@ -11,11 +11,11 @@ class ControllerLogin extends ControllerBase {
 
 	public function login() {
 
-		$PostEmail = $_POST['email'];
+		$PostEmail    = $_POST['email'];
 		$PostPassword = $_POST['password'];
 
 		$passwordOk = $this->model->checkPasswordUser($PostEmail, $PostPassword);
-		$mailOk = $this->model->checkMailUser($PostEmail);
+		$mailOk     = $this->model->checkMailUser($PostEmail);
 
 		// =================start check that the Post are not empty ==========================
 
@@ -60,10 +60,10 @@ class ControllerLogin extends ControllerBase {
 						// =================start check password DBB==========================
 
 						if ($passwordOk != "") {
-							$adminOk = $this->model->checkAdmin($PostEmail);
-							$idUser = $this->model->getUserId($PostEmail);
+							$adminOk             = $this->model->checkAdmin($PostEmail);
+							$idUser              = $this->model->getUserId($PostEmail);
 							$_SESSION["id_user"] = $idUser;
-							$_SESSION["admin"] = $adminOk;
+							$_SESSION["admin"]   = $adminOk;
 							// var_dump($_SESSION["admin"]);
 							// die;
 							if ($adminOk == "1") {
@@ -101,8 +101,8 @@ class ControllerLogin extends ControllerBase {
 	}
 
 	public function deleteUser() {
-		$itemId = $_GET['id'];
-		$delete = $this->model->DeleteThisItem($itemId);
+		$itemId   = $_GET['id'];
+		$delete   = $this->model->DeleteThisItem($itemId);
 		$listUser = $this->model->getList();
 		$this->view->displayAdmin($listUser);
 
@@ -110,7 +110,7 @@ class ControllerLogin extends ControllerBase {
 
 	public function modifForm() {
 		if (isset($_GET['id']) && is_numeric($_GET['id'])) {
-			$id = $_GET['id'];
+			$id       = $_GET['id'];
 			$userInfo = $this->model->getUserInfo($id);
 			$this->view->displayModifFrom($userInfo, $id);
 
@@ -122,11 +122,11 @@ class ControllerLogin extends ControllerBase {
 
 		// $FormPost     = $_POST;
 
-		$itemId = $_GET['id'];
-		$postName = $_POST['name'];
-		$postEmail = $_POST['email'];
+		$itemId       = $_GET['id'];
+		$postName     = $_POST['name'];
+		$postEmail    = $_POST['email'];
 		$postPassword = $_POST['password'];
-		$postAcces = $_POST['acces'];
+		$postAcces    = $_POST['acces'];
 		var_dump($_POST);
 
 		$update = $this->model->modifItem($postName, $postEmail, $postPassword, $postAcces, $itemId);
@@ -142,3 +142,4 @@ class ControllerLogin extends ControllerBase {
 	}
 
 }
+// !

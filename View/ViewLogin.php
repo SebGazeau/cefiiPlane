@@ -39,13 +39,13 @@ class ViewLogin extends ViewBase {
   </thead>";
 		foreach ($listUser as $item) {
 			$this->pageHTML .= "<tbody>";
-			$this->pageHTML .= "<td>" . $item['id'] . "</td>";
-			$this->pageHTML .= "<td>" . $item['name'] . "</td>";
-			$this->pageHTML .= "<td>" . $item['email'] . "</td>";
-			$this->pageHTML .= "<td>" . $item['password'] . " </td>";
-			$this->pageHTML .= "<td>" . $item['acces'] . "</td>";
-			$this->pageHTML .= "<td><a  class='btn text-white bg-danger btn-sm' href='index.php?controller=Login&action=deleteUser&id=" . $item['id'] . "'>Delete</a></td>";
-			$this->pageHTML .= "<td><a  class='btn text-white bg-danger btn-sm' href='index.php?controller=Login&action=modifForm&id=" . $item['id'] . "'>Modif</a></td>";
+			$this->pageHTML .= "<td>".$item['id']."</td>";
+			$this->pageHTML .= "<td>".$item['name']."</td>";
+			$this->pageHTML .= "<td>".$item['email']."</td>";
+			$this->pageHTML .= "<td>".$item['password']." </td>";
+			$this->pageHTML .= "<td>".$item['acces']."</td>";
+			$this->pageHTML .= "<td><a  class='btn text-white bg-danger btn-sm' href='index.php?controller=Login&action=deleteUser&id=".$item['id']."'>Delete</a></td>";
+			$this->pageHTML .= "<td><a  class='btn text-white bg-danger btn-sm' href='index.php?controller=Login&action=modifForm&id=".$item['id']."'>Modif</a></td>";
 
 			$this->pageHTML .= "</tbody>";
 		}
@@ -76,3 +76,4 @@ class ViewLogin extends ViewBase {
 	}
 
 }
+// !
