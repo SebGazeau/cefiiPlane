@@ -1,0 +1,44 @@
+#stats {
+    background:slategray;
+    font-family:Arial;
+    text-align: center;
+}
+
+#stats #boutons{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-pack:distribute;
+    justify-content:space-around;
+    margin-bottom:6rem;
+}
+
+#stats #content1{
+    width:60%;
+}
+
+#stats canvas {
+    background-color: white;
+}
+
+#stats button {
+    padding: 1rem 2rem;
+}
+
+#stats #content1 {
+	margin: auto;
+}
+
+#stats table{
+    width: 100%;
+}
+
+#stats th{
+    color:white;
+    background:gray;
+}
+
+#stats td
+{
+ height:3em;   
+}

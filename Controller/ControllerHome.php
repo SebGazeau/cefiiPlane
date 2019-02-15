@@ -9,8 +9,11 @@ class ControllerHome extends ControllerBase
         parent::__construct("Home");
     }
 
+    public function display(){
+        $this->view->displayPage("page");
+    }
 
-public function display(){
-    $this->view->displayPage("page");
-}
+    public function displayStats() {
+        $this -> view -> displayPage("stats");
+    }
 }
