@@ -11,82 +11,46 @@
 </head>
 
 <body>
-<div id="boutons">
-    <input id="tab" type="button" value="Tableau">
-    <input id="graph" type="button" value="Graphique">
-       </div>
-    
-<div>
     <h2>Best Score</h2>
     <p id="bestScore"></p>
-</div>
-    
-    <main>
+    <div id="boutons">
+        <button id="board">Board</button>
+        <button id="chart">Chart</button>
+    </div>
     <div id="content1">
         <table border="2">
-            <tr>
-                <th>Démarrage</th>
-                <th>Vitesse</th>
-                <th>Décollage</th>
-                <th>Altitude</th>
-                <th>Niveau</th>
-                <th>Carburant</th>
-                <th>Crash</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <thead>
                 <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-                <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-                <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-                <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                    <th>Time</th>
+                    <th>On/Off</th>
+                    <th>Speed</th>
+                    <th>Take-off</th>
+                    <th>Altitude</th>
+                    <th>Fuel-level</th>
+                    <th>Crash</th>
+                </tr>
+            </thead>
+            <tbody>
+<!--                insertion en ajax-->
+            </tbody>
         </table>
     </div>
-
     <div id="content2">
+        <select name="id_flight" id="id_flight">
+<!--            insertion options en ajax-->
+        </select>
+        <select name="column" id="column">
+            <option value="on_off">On/Off</option>
+            <option value="speed">Speed</option>
+            <option value="take_of">Take-of</option>
+            <option value="altitude">Altitude</option>
+            <option value="fuel_level">Fuel level</option>
+            <option value="crash">Crash</option>
+        </select>
         <div class="chart-container">
-            <canvas id="chart"></canvas>
+            <canvas id="scatterChart"></canvas>
         </div>
     </div>
-</main>
 </body>
 
 </html>

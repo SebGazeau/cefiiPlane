@@ -16,9 +16,10 @@ class ViewBlackBox extends ViewBase {
         echo $insideTBody;
     }
     public function displayFlight($flightInfos) {
+        $insideTBody = "";
         foreach ($flightInfos as $infos) {
-            $insideTBody = "<tr>";
-            for($i = 0; $i <=9; $i++) {
+            $insideTBody .= "<tr>";
+            for($i = 1; $i <=7; $i++) {
                 $insideTBody .= "<td>$infos[$i]</td>";
             }
             $insideTBody .= "</tr>";

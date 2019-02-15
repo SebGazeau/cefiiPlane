@@ -1,36 +1,33 @@
 body{
     background:slategray;
     font-family:Arial;
+    text-align: center;
 }
 
 #boutons{
-display:flex;
-justify-content:space-around;
-    margin-bottom:6em;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-pack:distribute;
+    justify-content:space-around;
+    margin-bottom:6rem;
 }
-
-#tab{
-    width:6em;
-   height:3em;
-    font-weight:bold;
-    
-}
-
-#graph{
-    width:6em;
-   height:3em;
-        font-weight:bold;
-
-}
-
-
 
 #content1{
     width:60%;
 }
 
+canvas {
+    background-color: white;
+}
+
+button {
+    padding: 1rem 2rem;
+}
+
 table{
-    width:100%;
+    margin: auto;
+    width: 100%;
 }
 
 th{
@@ -41,9 +38,4 @@ th{
 td
 {
  height:3em;   
-}
-
-main{
-    display:flex;
-justify-content:center;
 }

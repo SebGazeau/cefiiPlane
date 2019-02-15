@@ -38,21 +38,20 @@ class ViewFlight extends ViewBase{
 
         
     public function ajaxFlight($list){
-        
-            /* var_dump($list);    */     
-            $this->pageHTML .= "<select>";
+
+            $option = "";
+
             foreach ($list as $fly){
              if($_SESSION["id_flight"]==$fly[0]){
-                $this->pageHTML .="<option value='".$fly[0]."' selected>".$fly[0];
+                $option .="<option value='".$fly[0]."' selected>".$fly[0];
              }else{
-                $this->pageHTML .="<option value='".$fly[0]."' >".$fly[0];
+                $option .="<option value='".$fly[0]."' >".$fly[0];
              }
 
-                $this->pageHTML .="</option>";
+                $option .="</option>";
             }
-            $this->pageHTML .="</select>";
             
-            $this -> displayHTML();
+            echo $option;
     }    
 
 } 
