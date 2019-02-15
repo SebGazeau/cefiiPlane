@@ -15,9 +15,9 @@ class ViewLogin extends ViewBase {
 	}
 
 	public function erreur($message) {
-		echo $message;
-		// $this->pageHTML .= $message;
-		// $this->displayHTML();
+		$message;
+		$this->pageHTML .= $message;
+		$this->displayHTML();
 
 	}
 
@@ -25,6 +25,29 @@ class ViewLogin extends ViewBase {
 
 		$this->pageHTML .= "
 <a href='index.php?controller=Login&action=logout'><button class='Login btn btn-danger' >Logout</button></a>
+ <br>
+
+       <section class='row col-12'>
+
+
+
+ <nav class='col-12 navbar navbar-expand-lg  sticky-top'>
+        <ul class='list-inline col-12 row justify-content-between'>
+            <li class='list-inline-item col'><a class='btn btn-primary btn-lg btn-block' href='index.php?controller=Home&action=displayWelcome'>UserList</a></li>
+
+            <li class='list-inline-item col'><a class='btn btn-primary btn-lg btn-block' href=/index.php?controller=Page2&action=displayNewUser'>Flights</a></li>
+
+            <li class='list-inline-item col'><a class='btn btn-primary btn-lg btn-block' href='index.php?controller=Page3&action=displayNewUser'>BlackBox</a></li>
+
+			<li class='list-inline-item col'><a class='btn btn-primary btn-lg btn-block' href='index.php?controller=Page4&action=displayNewUser'>Score</a></li>
+
+
+
+        </ul>
+ </nav>
+        </section>
+
+
 		<table class='table'>
   <thead class='thead-dark'>
     <tr>
@@ -71,9 +94,8 @@ class ViewLogin extends ViewBase {
 	public function GoBackToLoginPage() {
 		echo "Your are logged out!";
 
-		$this->pageHTML .= file_get_contents("View/html/page.html");
+		$this->pageHTML .= file_get_contents("View/ViewHome.php");
 		$this->displayHTML();
 	}
 
 }
-// !
