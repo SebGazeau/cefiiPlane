@@ -28,14 +28,15 @@ public function selectFlight($id_user){
         } 
 
 
-        
+
 public function supprFlight($id){
     $requete = $this->database->prepare("DELETE FROM flight WHERE id=:id");
     $requete->bindParam(':id',$id);    
     $resultat=$requete->execute();    
         return $resultat;
-    } 
-
+   
+        
+        
 
 }
 

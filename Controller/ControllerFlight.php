@@ -20,7 +20,7 @@ public function newFlight() {
         $this->view->displayErreur();
          }
     }
-    
+
 
 /* sélection des vols d'un utilisateur*/    
 
@@ -42,12 +42,12 @@ public function ajaxFlight(){
 }
 
 
+
 public function supprFlight(){
     $id=$_GET['id'];
     var_dump($id);
     $this->model->supprFlight($id);
     $this->selectFlight();
-        
 
 
 
