@@ -1,10 +1,25 @@
+var urlLogin = "index.php?controller=login&action=login";
+
 $(document).ready(function ($) {
 
     $('.typeForm').click(function () {
         var typeForm = $(this).text();
         $('form').attr('id', typeForm);
     });
+    $("#connect").click(function () {
+        $(this).toggleClass("background");
+        $("#inscript").removeClass("background");
+        $("#formul").html("FORMULAIRE DE CONNEXION");
+        urlLogin = "index.php?controller=login&action=login";
 
+    });
+    $("#inscript").click(function () {
+        $(this).toggleClass("background");
+        $("#connect").removeClass("background");
+        $("#formul").html("FORMULAIRE D'INSCRIPTION");
+        urlLogin = "index.php?controller=register&action=addUser";
+
+    });
 
 
     $("#submit").click(function () {
@@ -43,20 +58,20 @@ $(document).ready(function ($) {
             alert('veuillez remplir tous les champs');
         }
     });
-    $('#testPopup').click(function(){
+    $('#testPopup').click(function () {
         var score = 45;
         var idJoueur = "joueur test";
-        var info = 'idJoueur='+idJoueur+'&score='+score;
+        var info = 'idJoueur=' + idJoueur + '&score=' + score;
         $.ajax({
-            url:'js/resultat.php',
-            type:'POST',
+            url: 'js/resultat.php',
+            type: 'POST',
             data: info,
-            success : function (dataInfo){
+            success: function (dataInfo) {
                 $('#listeScore').append(dataInfo);
                 console.log(dataInfo);
             }
         })
-        
+
     });
 
 });

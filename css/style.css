@@ -1,6 +1,7 @@
 body {
     position: relative;
     font-size: 100%;
+overflow: hidden;
 }
 
 #popupFin {
@@ -19,7 +20,14 @@ body {
     font-size: 3em;
     margin-bottom: 0.5em;
 }
+.background{
+    background-color: green;
+}
 
+#formul{
+   color:green;
+   font-family: silkscreennormal;
+}
 #scoreJoueur {
     font-size: 2em;
     background-color: black;
@@ -173,12 +181,42 @@ section {
 .nezBas{
     transform: rotate(20deg);
 }
+#barre2vie{
+    width: 200px;
+    height: 75px;
+    position: absolute;
+    top: 0;
+    left:0;
+    border: 1 px solid black;
+    z-index: 9999;
+}
+.coeur{
+    width: 66px;
+    margin:0;
+    margin-right: -0.5em;
+}
 
+#arbre{
+    position: absolute;
+    top: 345px;
+    width: 120px;
+    left: 1600px;
+    z-index: 9999;
+}
+#explosion{
+    width: 125px;
+    top: 250px;
+    left: 250px;
+    position: absolute;
+    z-index: 999999999999;
+    display: none;
+    opacity: 0.9;
+}
 /* oiseau */
 #oiseau{
     position: absolute;
     top: 25px;
-    right: -115px;
+    right: -150px;
     z-index:5;
 }
 #oiseau2{
@@ -205,10 +243,13 @@ section {
 
 }
 
-/* css animation partie section */
+/* css animation partie aside */
 aside{
-    position:relative;
-    top: 120px;
+    display: none;
+    background-color: black;
+    height: 200px;
+    position:sticky;
+    top: 136px;
 }
 
 #errmsg {
@@ -220,15 +261,18 @@ aside{
     display: flex;
     width: 80%;
     margin: 0 auto;
+    height: 0;
 }
 
 #left {
-    float: left;
+    text-align: center;
     background: #191919;
     border: 1px solid #292929;
     color: #fff;
-    margin-top: 100px;
-    padding: 30px;
+    position: relative;
+    left: 909px;
+    height: 50px;
+    top: -3px;
 }
 
 
@@ -245,48 +289,55 @@ p {
 }
 
 #gauge {
-    float: left;
     margin-left: 40px;
-    width: 334px;
+    width: 168px;
     position: relative;
-    height: 260px;
-    border-radius: 75px;
+    height: 144px;
+    border-radius: 45px;
     background: #000 url(../img/speedometer-2.png) no-repeat;
+    bottom: 148px;
+    left: 670px;
 }
 
 #needle {
-    height: 5px;
-    width: 148px;
+    height: 2px;
+    width: 70px;
     background: #ff0200;
     position: absolute;
-    bottom: 97px;
-    left: 18px;
+    bottom: 62px;
+    left: 12px;
 }
 
 #numbers {
-    width: 140px;
-    height: 30px;
+    width: 85px;
+    height: 15px;
     background: #191919;
     position: absolute;
-    bottom: 10px;
-    left: 85px;
+    bottom: 5px;
+    left: 30px;
     color: #fff;
-    font-size: 1.8em;
-    line-height: 1.34em;
+    font-size: 1.3em;
+    line-height: 1em;
     font-family: "Courier New", Courier, monospace;
     padding: 0px 10px 5px;
     border: 1px solid #292929;
 }
 
 #circle {
-    width: 79px;
-    height: 79px;
-    background: url(../img/circle-3.png)no-repeat;
-    bottom: 59px;
-    left: 127px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/circle-2.png)no-repeat;
+    bottom: 37px;
+    left: 58px;
     position: absolute;
 }
-
+#timer{
+    position: relative;
+    bottom: 140px;
+    left: 1350px;
+    font-size: 2em;
+    color: white;
+}
 /* reservoir */
 #reservoir {
     z-index: 20;
@@ -300,4 +351,15 @@ p {
     z-index: 30;
     height: 4.9em;
     background-image: linear-gradient(to right, green, orange, red);
+}
+/* pastille */
+#pastille{
+    position: absolute;
+    left: 920px;
+    top: 55px;
+   height:50px;
+   width: 50px;
+   border-radius: 50px;
+   background-color: red;
+   border: 3px solid #948A7E;
 }
