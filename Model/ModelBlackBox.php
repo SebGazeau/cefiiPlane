@@ -3,7 +3,7 @@ class ModelBlackBox extends ModelBase {
     /**
      * Pour afficher les informations de la boite noire
      * @param $id
-     * @return list of infos
+     * @return array $list
      */
     public function getData($id) {
         $request = $this->database->prepare("SELECT * from black_box WHERE id = :id");
@@ -12,6 +12,11 @@ class ModelBlackBox extends ModelBase {
         $list = $request->fetch(PDO::FETCH_NUM);
         return $list;
     }
+    /**
+     * Pour afficher toutes les informations de la table
+     * @param void
+     * @return array $list
+     */
     public function getAll() {
         $request = $this->database->prepare("SELECT * from black_box");
         $result= $request->execute();
