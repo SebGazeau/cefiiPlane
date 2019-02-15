@@ -1,12 +1,17 @@
 /* variable globale */
 var temps = 1100;
 var interval;
-var actu = 100; /* 980L / 9.8 */
+var actu = 0; /* 980L / 9.8 */
 var time;
 var vie = 3;
 const ratio = 1000000;
-var départ = false;
-
+var score = 0;
+var sec = 0;
+var min = 0;
+var depart = false;
+var avionEnvol = false;
+var vitesseVol = false;
+var crash = false;
 /* document ready*/
 $(document).ready(function () {
     console.log($('#demarrage'));
@@ -14,73 +19,99 @@ $(document).ready(function () {
     jQuery("#testPopup").click(popScore);
     /* gestion de l'accélération */
     var km = parseFloat($("#kilometers").val());
-    $(document).keydown(function acceleration(e) {
+
+    function avance() {
+        $(document).keydown(function acceleration(e) {
             var touche = e.which;
             switch (touche) {
                 case 39: //droite
-                    
+
                     if (temps > 400) {
                         temps -= 100;
                         km += 1;
                         km = km + 29;
                         $("#kilometers").val(km);
+                        $("#kilometers").focus();
                     }
                     break;
                 case 37: //gauche
-                    
+
                     if (temps < 1100) {
                         temps += 100;
                         km -= 1;
                         km = km - 29;
                         $("#kilometers").val(km);
+                        $("#kilometers").focus();
                     }
                     break;
             }
 
         });
+    }
     /* démarrage de l'avion */
     $("#start").click(function () {
-        
+        console.log(depart);
+        if (depart) {
+            fond();
+            dpcmtOiseau2();
+            setInterval(collision, 20);
+            timeScore();
+            avance();
+
+        } else {
+            console.log(depart);
+
+        }
         test = 1;
-        fond();
-        dpcmtOiseau();
-        dpcmtOiseau2();
-        dpcmtarbre();
-        setInterval(collision, 20);
+
     });
+    if(crash){
+        alert('fin');
+    }
     interval = setInterval(consommation, 1000);
     $("#plein").click(plein);
     $("#demarrage").click(demarrage);
     $(document).keyup(pastille);
     var test = 1;
-    
+   
 });
 
 /* gestion altitude de l'avion */
-function altAvion(){
-$(document).keydown(function (e) {
-    var touche = e.which;
-    switch (touche) {
-        case 38: //haut
+function altAvion() {
+    $(document).keydown(function (e) {
+        var touche = e.which;
+        switch (touche) {
+            case 38: //haut
 
-            var avionY = parseFloat($('#avionComplete').css('top'));
-            if (avionY >= 15) {
-                $('#avionComplete').css('top', "-=20px");
-            }
-            break;
-        case 40: //bas
+                var avionY = parseFloat($('#avionComplete').css('top'));
+                if (avionY >= 15) {
+                    $('#avionComplete').css('top', "-=20px");
+                    avionEnvol=true;
+                }
+                break;
+            case 40: //bas
 
-            var avionY = parseFloat($('#avionComplete').css('top'));
-            if (avionY < 370) {
-                $('#avionComplete').css('top', "+=20px");
-            }
-            break;
-    }
-});
+                var avionY = parseFloat($('#avionComplete').css('top'));
+                if (avionY < 370) {
+                    $('#avionComplete').css('top', "+=20px");
+                }
+                else if (avionY == 380){
+                    avionEnvol=false;
+                }
+                break;
+        }
+    });
 }
 /* défilement du paysage */
 function fond() {
+    if (score > 300) {
+        dpcmtarbre();
+    }
+    if (score > 500){
 
+                dpcmtOiseau();
+
+    }
 
     console.log(temps);
     $("#imgfond").animate({
@@ -102,16 +133,18 @@ function dpcmtOiseau() {
     setTimeout("dpcmtOiseau()", 1000);
 }
 
-function dpcmtOiseau2(){
-            $("#oiseau2").animate({left:"-200px"},2000,"linear",function(){
-                $(this).css("left","1400px");
-                var posY = Math.random()*200;
-                posY = Math.floor(posY);
-                $(this).css("top",posY+"px");
-                test=1;
-            });
-            setTimeout("dpcmtOiseau2()",1000);
-        }
+function dpcmtOiseau2() {
+    $("#oiseau2").animate({
+        left: "-200px"
+    }, 2000, "linear", function () {
+        $(this).css("left", "1400px");
+        var posY = Math.random() * 200;
+        posY = Math.floor(posY);
+        $(this).css("top", posY + "px");
+        test = 1;
+    });
+    setTimeout("dpcmtOiseau2()", 1000);
+}
 /* déplacement arbre */
 function dpcmtarbre() {
 
@@ -238,17 +271,21 @@ jQuery(document).ready(function ($) {
 });
 
 /* timer */
-jQuery(document).ready(function ($) {
+/* ---- chronomètre ! Chef! ---- */
+function timeScore() {
 
-    var sec = 0;
-    var min = 0;
+
     function timer() {
+        var vit = $('#kilometers').val();
+        vit = parseInt(vit);
+        console.log(vit);
         // récupère les secondes et les minutes de notre fuseau horaire.
         var maDate = new Date($.now());
         var second = maDate.getSeconds();
         var second = parseInt(second);
         var minute = maDate.getMinutes();
         var minute = parseInt(minute);
+
         function chrono() {
             // utilise la fonction timer pour s'incrémenter.
             sec++;
@@ -260,15 +297,38 @@ jQuery(document).ready(function ($) {
             $('#min').html(min);
         }
         chrono();
+
+        function calculScore() {
+            // calcul du score.
+            if (vit == 0) {
+                score = score;
+            } else if (vit == 90) {
+                score = score + 10;
+            } else if (vit == 120) {
+                score = score + 15;
+            } else if (vit == 150) {
+                score = score + 20;
+            } else if (vit == 180) {
+                score = score + 25;
+            } else if (vit == 210) {
+                score = score + 30;
+            }
+            $("#score").html(score);
+        }
+        
+        if(avionEnvol){
+        calculScore();
+        }
+        
         setTimeout(timer, 1000);
     }
     timer();
-});
+}
 
 
 function consommation() {
-    
-    var vit = ($("#number").val()) / 3600; /* en km/sec */
+
+    var vit = ($("#kilometers").val()) / 3600; /* en km/sec */
     var time2 = 1; /* set intervall 1000 */
     //    console.log(vit*time2);
     var conso = vit / 120 * 0.32 / 9.8; /* L/km */
@@ -276,35 +336,36 @@ function consommation() {
     actu = actu - perte * ratio;
     $("#fuel").css('width', actu + "%");
     var fuel = $("#fuel").css('width');
-    if (fuel=="0px"){
+    if (fuel == "0px") {
         clearInterval(interval);
     }
 }
 
 function plein() {
-    clearInterval(interval);                            /* arrete l'interval continue du calcul de consommation */
+    clearInterval(interval); /* arrete l'interval continue du calcul de consommation */
     actu = 100;
-        $("#fuel").animate({
-            "width": "100%"
-        }, 1000, "linear", function () {
-            consommation;
-            interval=setInterval(consommation,1000);    /* relance le calcul continue de la consommation */
-            alert("plein fait!!");
-        });
+    $("#fuel").animate({
+        "width": "100%"
+    }, 1000, "linear", function () {
+        consommation;
+        interval = setInterval(consommation, 1000); /* relance le calcul continue de la consommation */
+        alert("plein fait!!");
+    });
 }
 
-function demarrage(){
+function demarrage() {
     var fuel = parseInt($("#fuel").css('width'));
-    console.log('fuel='+fuel);
+    console.log('fuel=' + fuel);
     var reservoir = parseInt($("#reservoir").css('width'));
-    console.log('reservoir='+reservoir);
-    
-    if (fuel>=0.995*reservoir){
+    console.log('reservoir=' + reservoir);
+
+    if (fuel >= 0.995 * reservoir) {
         $('#conteneurElis').addClass('rotationEli');
-        alert("le moteur peut démarrer");              /* le reservoir est plein, on peut lancer le moteur  */
-    }else{
+        depart = true;
+        alert("le moteur peut démarrer"); /* le reservoir est plein, on peut lancer le moteur  */
+    } else {
         console.log('vide');
-        var fail = new Audio('../son/moteur1.mp3');
+        var fail = new Audio('son/moteur1.mp3');
         fail.play();
     }
 }
@@ -336,31 +397,28 @@ function collision() {
             }, 2000);
             vie = vie - 1;
             $('#coeur1').hide();
-            console.log("t'es mort");
             $('#anim').end();
+            crash = true;
         }
 
-        console.log("touche");
-        console.log("y arbre:" + obstacle2Y);
-        console.log("x arbre" + obstacle2X);
-        console.log("x avion" + avionX);
-        console.log("x avion" + avionY);
     }
 }
 
 /* pastille */
-function pastille(e){
-   var touche = e.which;
-   var vitesse = $("#kilometers").val();
+function pastille(e) {
+    var touche = e.which;
+    var vitesse = $("#kilometers").val();
 
 
-   if(touche==39 || touche == 37) {
-
-   }
-   if(vitesse>89){
-       $("#pastille").css('background-color','#BEF202');
-       altAvion();
-   }else{
-       $("#pastille").css('background-color','red');
-   }
+//    if (touche == 39 || touche == 37) {
+//
+//    }
+    if (vitesse > 89 && vitesse < 141) {
+        $("#pastille").css('background-color', '#BEF202');
+        vitesseVol=true;
+        altAvion();
+    } else {
+        $("#pastille").css('background-color', 'red');
+        vitesseVol=false;
+    }
 }
