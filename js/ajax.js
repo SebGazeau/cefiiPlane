@@ -33,20 +33,29 @@ $(document).ready(function ($) {
             if (regExp.test(email)) {
                 var param = "name=" + name + "&email=" + email + "&password=" + password;
                 $.ajax({
-                    url: 'js/' + form + '.php',
+                    url: urlLogin,
                     type: 'POST',
                     data: param,
                     success: function (data, statut) {
-                        console.log(data);
-                        if (data == "connexion" || data == "inscription") {
+                        console.log("voici le message"+data);
+                        console.log("voici l'email"+email);
+                        
+                        if (data == "Your email is incorrect please try!") {
+                           
+                           alert ("mail inconnu");
+                        }
+                        if (data=="Connected"){
+                            alert("vous êtes connecté");
                             popForm();
-                        } else {
-                            alert("erreur");
                         }
                     },
                     error: function (r, s, e) {
                         console.log("r=>" + r + "s=>" + s + "e=>" + e)
+                    },
+                    complete: function(r, s){
+                        console.log("je suis là");
                     }
+                    
                 })
             } else {
                 alert('mail incorrect !')
@@ -58,22 +67,6 @@ $(document).ready(function ($) {
             alert('veuillez remplir tous les champs');
         }
     });
-    $('#testPopup').click(function () {
-        var score = 45;
-        var idJoueur = "joueur test";
-        var info = 'idJoueur=' + idJoueur + '&score=' + score;
-        $.ajax({
-            url: 'js/resultat.php',
-            type: 'POST',
-            data: info,
-            success: function (dataInfo) {
-                $('#listeScore').append(dataInfo);
-                console.log(dataInfo);
-            }
-        })
-
-    });
-
 });
 
 function popForm() {
