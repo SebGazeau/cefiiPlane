@@ -5,12 +5,21 @@ body{
 }
 
 #boutons{
+<<<<<<< Updated upstream
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:distribute;
     justify-content:space-around;
     margin-bottom:6rem;
+=======
+display:-webkit-box;
+display:-ms-flexbox;
+display:flex;
+-ms-flex-pack:distribute;
+justify-content:space-around;
+    margin-bottom:6em;
+>>>>>>> Stashed changes
 }
 
 #content1{
@@ -38,4 +47,16 @@ th{
 td
 {
  height:3em;   
+<<<<<<< Updated upstream
+=======
+}
+
+main{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+-webkit-box-pack:center;
+-ms-flex-pack:center;
+justify-content:center;
+>>>>>>> Stashed changes
 }
